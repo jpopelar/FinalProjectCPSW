@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import gameStuff.BadConfigException;
 import gameStuff.BattleField;
 import gameStuff.Launcher;
 import gameStuff.Question;
@@ -18,7 +19,15 @@ public class fileInitTests {
 	@BeforeClass
 	public void init() {
 		field.loadBattleField();
-		field.loadQuestions();
+		
+		try {
+			field.loadQuestions();
+		} catch (BadConfigException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		field.loadLaunchers();
 		
 		// harcode the file names and load up the battleField

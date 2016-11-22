@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import gameStuff.BadConfigException;
 import gameStuff.BattleField;
 import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
@@ -14,7 +15,12 @@ public class physicsEngineTests {
 	
 	@BeforeClass
 	public void init() {
-		field.loadQuestions();
+		try {
+			field.loadQuestions();
+		} catch (BadConfigException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		field.loadLaunchers();
 		
 		// harcode the file names and load up the battleField

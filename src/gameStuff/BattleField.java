@@ -1,8 +1,11 @@
 package gameStuff;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class BattleField {
 	
@@ -14,7 +17,7 @@ public class BattleField {
 	private int theLaunch, theMissile;
 	private static Target theTarget;
 	// config file names:
-	private String battleFieldFileName, questionsFileName; 
+	private String battleFieldFileName, questionFileName; 
 	
 	private int xDim, yDim;
 	
@@ -29,8 +32,24 @@ public class BattleField {
 		// handles loading up the dimension of the board
 		// 	and the target / launcher locats
 	}
-	public void loadQuestions(){
-		// 
+	public void loadQuestions()throws BadConfigException {
+		try {
+			FileReader questionFile = new FileReader(questionFileName);
+			Scanner tempScanner = new Scanner(questionFile);
+			while (tempScanner.hasNextLine()) {
+				String tempQA = tempScanner.nextLine();
+				String[] questAns = new String[5]; // constant
+				questAns = tempQA.split(":"); // NOTE: Delimiter is ":"
+				String[] wrongA = new String[3];
+				for(int i = 0; i < 3; i++) {
+					wrongA[i] = questAns[i+2];
+				}
+				Question tmpQ = new Question(questAns[0], questAns[1], wrongA);
+				questionList.add(tmpQ);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

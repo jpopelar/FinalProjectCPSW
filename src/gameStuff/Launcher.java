@@ -6,8 +6,8 @@ public class Launcher {
 	private int velocity;
 	private String launcherName;
 	
-	public Launcher() {
-		
+	public Launcher(int xLoc) {
+		this.xLoc = xLoc;
 	}
 	
 	public int getXLoc() {
