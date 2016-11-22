@@ -17,12 +17,12 @@ public class fileInitTests {
 
 	@BeforeClass
 	public void init() {
+		// hard code the file names and load up the battleField
+		// use setter to load config files
+		// TODO: make setter methods for cofig file names
 		field.loadBattleField();
 		field.loadQuestions();
 		field.loadLaunchers();
-		
-		// harcode the file names and load up the battleField
-		// use setter to load config files
 	}	
 	
 	@Test
@@ -48,38 +48,36 @@ public class fileInitTests {
 	
 	@Test
 	public void testQuestions() {
-		ArrayList<Question> tempQuestionList = field.getQuestions();
-		
-		//Todo: Test incorrect answers for each key
-		
-		assertEquals(tempQuestionList.size(),4);
-		
-		assertEquals(tempQuestionList.get(0).toString(), "temp0");
-		assertEquals(tempQuestionList.get(1).toString(), "temp1");
-		assertEquals(tempQuestionList.get(2).toString(), "temp2");
-		assertEquals(tempQuestionList.get(3).toString(), "temp3");
-		
-		assertEquals(tempQuestionList.get(0).getAnswer(), "A1");
-		assertEquals(tempQuestionList.get(1).getAnswer(), "A2");
-		assertEquals(tempQuestionList.get(2).getAnswer(), "A3");
-		assertEquals(tempQuestionList.get(3).getAnswer(), "A4");
 		// make sure there are the correct number of qs
 		// ensure correct and wrong answers are recognized as such
-		
+		ArrayList<Question> tempQuestionList = field.getQuestions();
+		// Make sure there are 4 question
+		assertEquals(tempQuestionList.size(),4);
+		// Make sure questions were loaded correctly
+		assertEquals(tempQuestionList.get(0).toString(), "What angle is complementary to 30 degrees?");
+		assertEquals(tempQuestionList.get(1).toString(), "What angle throws the projectile farthest?");
+		assertEquals(tempQuestionList.get(2).toString(), "How many angles throw the projectile the same distance?");
+		assertEquals(tempQuestionList.get(3).toString(), "All of the launcher angles are...");
+		// Make sure those ^ questions have these answers...
+		assertEquals(tempQuestionList.get(0).getAnswer(), "60 degrees");
+		assertEquals(tempQuestionList.get(1).getAnswer(), "45 degrees");
+		assertEquals(tempQuestionList.get(2).getAnswer(), "2");
+		assertEquals(tempQuestionList.get(3).getAnswer(), "Acute");
 	}
 	
 	@Test
 	public void testLaunchers(){
-		ArrayList<Launcher> tmpLaunch = field.getLaunchers();
-		
-		assertEquals(tmpLaunch.size(), 3);
-		assertEquals(tmpLaunch.get(0).getVelocity(), 1);
-		assertEquals(tmpLaunch.get(1).getVelocity(), 2);
-		assertEquals(tmpLaunch.get(2).getVelocity(), 3);
-		
-		assertEquals(tmpLaunch.get(0).toString(), "Trebuchet");
-		assertEquals(tmpLaunch.get(1).toString(), "Catapult");
-		assertEquals(tmpLaunch.get(2).toString(), "Thwatcha");
+		ArrayList<Launcher> tmpLauncherList = field.getLaunchers();
+		// Make sure there are only 3 launchers
+		assertEquals(tmpLauncherList.size(), 3);
+		// Test each launchers given throwing velocity as specified in config file
+		assertEquals(tmpLauncherList.get(0).getVelocity(), 1);
+		assertEquals(tmpLauncherList.get(1).getVelocity(), 2);
+		assertEquals(tmpLauncherList.get(2).getVelocity(), 3);
+		// Test the names of the launchers
+		assertEquals(tmpLauncherList.get(0).toString(), "Trebuchet");
+		assertEquals(tmpLauncherList.get(1).toString(), "Catapult");
+		assertEquals(tmpLauncherList.get(2).toString(), "Thwatcha");
 	}
 
 	

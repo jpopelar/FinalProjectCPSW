@@ -10,20 +10,10 @@ import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
 
 public class physicsEngineTests {
-	BattleField field  = BattleField.getInstance();
+	final double DELTA = .25;
 	
-	@BeforeClass
-	public void init() {
-		field.loadQuestions();
-		field.loadLaunchers();
-		
-		// harcode the file names and load up the battleField
-		// use setter to load config files
-	}	
-
 	@Test
 	public void testXEnd() {
-		final double DELTA = .25;
 		//Get a launcher and missile
 		//Explicitly calculate where the missile ends up given angle
 		//PhysicsEngine will contain static methods to generate and get data 
@@ -37,7 +27,6 @@ public class physicsEngineTests {
 	
 	@Test
 	public void testXGivenT() {
-		final double DELTA = .25;
 		//Get a launcher and missile
 		//Explicitly calculate where the missile ends up given angle
 		//PhysicsEngine will contain static methods to generate and get data 
@@ -63,7 +52,6 @@ public class physicsEngineTests {
 	
 	@Test
 	public void testYGivenT() {
-		final double DELTA = .25;
 		//Get a launcher and missile
 		//Explicitly calculate where the missile ends up given angle
 		//PhysicsEngine will contain static methods to generate and get data 
