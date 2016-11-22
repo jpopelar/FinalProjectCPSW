@@ -5,13 +5,29 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import gameStuff.BadConfigException;
 import gameStuff.BattleField;
 import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
 
 public class physicsEngineTests {
 	final double DELTA = .25;
-	
+	BattleField field = BattleField.getInstance();
+
+	@BeforeClass
+	public void init() {
+		try {
+			field.loadQuestions();
+		} catch (BadConfigException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		field.loadLaunchers();
+		
+		// harcode the file names and load up the battleField
+		// use setter to load config files
+	}	
+
 	@Test
 	public void testXEnd() {
 		//Get a launcher and missile
