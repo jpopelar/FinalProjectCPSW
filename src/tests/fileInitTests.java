@@ -17,6 +17,7 @@ public class fileInitTests {
 
 	@BeforeClass
 	public void init() {
+		field.loadBattleField();
 		field.loadQuestions();
 		field.loadLaunchers();
 		
@@ -27,11 +28,14 @@ public class fileInitTests {
 	@Test
 	public void testDims() {
 		// assertEquals board dims are same as specified in config file
+		assertEquals(field.getXDim(), 100);
+		assertEquals(field.getYDim(), 25);
 	}
 	
 	@Test
 	public void testLocs(){
 		// test target and launcher locs as specified in the config file
+		
 	}
 	
 	@Test
