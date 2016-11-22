@@ -35,7 +35,15 @@ public class fileInitTests {
 	@Test
 	public void testLocs(){
 		// test target and launcher locs as specified in the config file
+		// Target Location
+		assertEquals(field.theTarget.getXLoc(), 75);
+		assertEquals(field.theTarget.getYLoc(), 0);
 		
+		// Launcher Location
+		// Ensure all launchers have same location
+		assertEquals(field.getLaunchers().get(0).getXLoc(), 10);
+		assertEquals(field.getLaunchers().get(1).getXLoc(), 10);
+		// Note that the launcher is hard coded at 0 and not able to be accessed
 	}
 	
 	@Test
