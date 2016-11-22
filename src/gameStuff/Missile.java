@@ -11,4 +11,9 @@ public class Missile {
 		return mass;
 	}
 
+	public double getPosition() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
