@@ -16,7 +16,7 @@ public class BattleField {
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
 	private int theLaunch, theMissile;
-	private static Target theTarget;
+	public static Target theTarget;
 	// config file names:
 	private String battleFieldFileName, questionFile; 
 	
