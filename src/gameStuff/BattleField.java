@@ -15,10 +15,10 @@ public class BattleField {
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
-	private int theLaunch, theMissile;
+	private int theLauncher, theMissile;
 	public static Target theTarget;
 	// config file names:
-	private String battleFieldFileName, questionFile; 
+	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
 	private int xDim, yDim;
 	
@@ -28,10 +28,23 @@ public class BattleField {
 		return theInstance;
 	}
 	
+	
+	
+	
+	
+	/*************************** FILE LOADERS ***************************/
 	public void loadBattleField() {
+		// `TODO: implement
 		// handles loading up the dimension of the board
-		// 	and the target / launcher locats
+		// 	and the target / launcher locations
+		// all the different launchers will be loaded in separate function from separate file
 	}
+	
+	public void loadLaunchers() {
+		// `TODO: implement
+		
+	}
+	
 	public void loadQuestions()throws BadConfigException {
 		try {
 			FileReader questionFile = new FileReader("questionListTest.txt");
@@ -52,30 +65,38 @@ public class BattleField {
 	}
 	
 	
+	
+	
+	
+	/*************************** SETTERS ***************************/
+	
 	//set config files
-	public void setConfigFiles(String questionFile){
-		this.questionFile = questionFile;
+	public void setQuestionFile(String questionFile){
+		this.questionFileName = questionFile;
+	}
+	public void setFieldFile(String n) {
+		this.battleFieldFileName = n;
+	}
+	public void setLaunchersFile(String n) {
+		this.launchersFileName = n;
 	}
 	
 	
 
 	
-	
+	/*************************** GETTERS ***************************/
 	public int getXDim() {
-		return 0;
+		return xDim;
 	}
 	
 	public int getYDim() {
-		return 0;
+		return yDim;
 	}
 	
 	public ArrayList<Question> getQuestions() {
 		return questionList;
 	}
-	public void loadLaunchers() {
-		// `
-		
-	}
+
 	public ArrayList<Launcher> getLaunchers(){
 		return launcherList;
 	}

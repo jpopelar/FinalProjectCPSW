@@ -29,7 +29,7 @@ public class fileInitTests {
 
 		
 		try {
-			field.setConfigFiles("questionListTest.txt");
+			field.setQuestionFile("questionListTest.txt");
 			field.loadQuestions();
 		} catch (BadConfigException e) {
 			System.out.println("Load question config error");
