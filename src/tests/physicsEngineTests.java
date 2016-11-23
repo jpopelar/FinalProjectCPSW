@@ -12,21 +12,6 @@ import gameStuff.PhysicsEngine;
 
 public class physicsEngineTests {
 	final double DELTA = .25;
-	BattleField field = BattleField.getInstance();
-
-	@BeforeClass
-	public void init() {
-		try {
-			field.loadQuestions();
-		} catch (BadConfigException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		field.loadLaunchers();
-		
-		// harcode the file names and load up the battleField
-		// use setter to load config files
-	}	
 
 	@Test
 	public void testXEnd() {
