@@ -16,7 +16,12 @@ public class Question {
 	}
 	
 	public String getAnswer() {
-		return answer;
+		return answer.toString();
+	}
+	
+	@Override
+	public String toString() {
+		return theQuestion;
 	}
 
 	

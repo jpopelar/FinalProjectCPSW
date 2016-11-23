@@ -18,7 +18,7 @@ public class BadConfigException extends Exception{
 			out.println(message);
 		} catch (FileNotFoundException e) {
 			System.out.println("Cannot find output log file");
-					}
+		}
 		
 	}
 	

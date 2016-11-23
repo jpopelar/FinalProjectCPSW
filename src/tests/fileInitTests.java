@@ -14,19 +14,22 @@ import gameStuff.Launcher;
 import gameStuff.Question;
 
 public class fileInitTests {
-	BattleField field = BattleField.getInstance();
-
+	
+	private static BattleField field;
+	
 	@BeforeClass
-	public void init() {
+	public static void init() {
+		field = BattleField.getInstance();
+
 		field.loadBattleField();
 		field.loadLaunchers();
 
 		
 		try {
+			field.setConfigFiles("questionListTest.txt");
 			field.loadQuestions();
 		} catch (BadConfigException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Load question config error");
 		}
 		
 		// harcode the file names and load up the battleField
@@ -48,21 +51,23 @@ public class fileInitTests {
 	
 	@Test
 	public void testQuestions() {
+		
+		
 		ArrayList<Question> tempQuestionList = field.getQuestions();
 		
 		//Todo: Test incorrect answers for each key
 		
 		assertEquals(tempQuestionList.size(),4);
 		
-		assertEquals(tempQuestionList.get(0).toString(), "temp0");
-		assertEquals(tempQuestionList.get(1).toString(), "temp1");
-		assertEquals(tempQuestionList.get(2).toString(), "temp2");
-		assertEquals(tempQuestionList.get(3).toString(), "temp3");
+		assertEquals(tempQuestionList.get(0).toString(), "What angle is complementary to 30 degrees?");
+		assertEquals(tempQuestionList.get(1).toString(), "What angle throws the projectile farthest?");
+		assertEquals(tempQuestionList.get(2).toString(), "How many angles throw the projectile the same distance?");
+		assertEquals(tempQuestionList.get(3).toString(), "All of the launcher angles are...");
 		
-		assertEquals(tempQuestionList.get(0).getAnswer(), "A1");
-		assertEquals(tempQuestionList.get(1).getAnswer(), "A2");
-		assertEquals(tempQuestionList.get(2).getAnswer(), "A3");
-		assertEquals(tempQuestionList.get(3).getAnswer(), "A4");
+		assertEquals(tempQuestionList.get(0).getAnswer(), "60 degrees");
+		assertEquals(tempQuestionList.get(1).getAnswer(), "45 degrees");
+		assertEquals(tempQuestionList.get(2).getAnswer(), "2");
+		assertEquals(tempQuestionList.get(3).getAnswer(), "Acute");
 		// make sure there are the correct number of qs
 		// ensure correct and wrong answers are recognized as such
 		

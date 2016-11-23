@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
 public class BattleField {
 	
 	private static BattleField theInstance = new BattleField();
@@ -14,16 +15,15 @@ public class BattleField {
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
-	public int theLaunch, theMissile;
-	public static Target theTarget;
+	private int theLaunch, theMissile;
+	private static Target theTarget;
 	// config file names:
-	private String battleFieldFileName, questionFileName; 
+	private String battleFieldFileName, questionFile; 
 	
 	private int xDim, yDim;
 	
-	public BattleField() {
-		
-	}
+	private BattleField() {}
+	
 	public static BattleField getInstance() {
 		return theInstance;
 	}
@@ -34,7 +34,7 @@ public class BattleField {
 	}
 	public void loadQuestions()throws BadConfigException {
 		try {
-			FileReader questionFile = new FileReader(questionFileName);
+			FileReader questionFile = new FileReader("questionListTest.txt");
 			Scanner tempScanner = new Scanner(questionFile);
 			while (tempScanner.hasNextLine()) {
 				String tempQA = tempScanner.nextLine();
@@ -48,11 +48,14 @@ public class BattleField {
 				questionList.add(tmpQ);
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+			System.out.println("Load question config error");		}
 	}
 	
 	
+	//set config files
+	public void setConfigFiles(String questionFile){
+		this.questionFile = questionFile;
+	}
 	
 	
 
@@ -70,7 +73,7 @@ public class BattleField {
 		return questionList;
 	}
 	public void loadLaunchers() {
-		// TODO Auto-generated method stub
+		// `
 		
 	}
 	public ArrayList<Launcher> getLaunchers(){
