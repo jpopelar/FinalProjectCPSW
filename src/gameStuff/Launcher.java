@@ -4,10 +4,13 @@ public class Launcher {
 	public final int YLOC = 0;
 	private int xLoc;
 	private int velocity;
-	private String launcherName;
+	private String launcherName, imageName;
 	
-	public Launcher(int xLoc) {
+	public Launcher(String launcherName, int xLoc, int velocity, String imageName) {
+		this.launcherName = launcherName;
 		this.xLoc = xLoc;
+		this.velocity = velocity;
+		this.imageName = imageName;
 	}
 	
 	public int getXLoc() {
@@ -18,6 +21,8 @@ public class Launcher {
 		return velocity;
 	}
 
-	
+	public String getName(){
+		return this.launcherName;
+	}
 
 }

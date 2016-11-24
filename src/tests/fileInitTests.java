@@ -20,15 +20,11 @@ public class fileInitTests {
 	@BeforeClass
 	public static void init() {
 		field = BattleField.getInstance();
-		// hard code the file names and load up the battleField
-		// use setter to load config files
-		// TODO: make setter methods for cofig file names
-
+		// load config files for testing
 		field.loadBattleField();
-		field.loadLaunchers();
-
-		
 		try {
+			field.setLaunchersFile("LauncherConfig.txt");
+			field.loadLaunchers();
 			field.setQuestionFile("questionListTest.txt");
 			field.loadQuestions();
 		} catch (BadConfigException e) {
@@ -87,13 +83,13 @@ public class fileInitTests {
 		// Make sure there are only 3 launchers
 		assertEquals(tmpLauncherList.size(), 3);
 		// Test each launchers given throwing velocity as specified in config file
-		assertEquals(tmpLauncherList.get(0).getVelocity(), 1);
-		assertEquals(tmpLauncherList.get(1).getVelocity(), 2);
-		assertEquals(tmpLauncherList.get(2).getVelocity(), 3);
+		assertEquals(tmpLauncherList.get(0).getVelocity(), 5);
+		assertEquals(tmpLauncherList.get(1).getVelocity(), 3);
+		assertEquals(tmpLauncherList.get(2).getVelocity(), 10);
 		// Test the names of the launchers
-		assertEquals(tmpLauncherList.get(0).toString(), "Trebuchet");
-		assertEquals(tmpLauncherList.get(1).toString(), "Catapult");
-		assertEquals(tmpLauncherList.get(2).toString(), "Thwatcha");
+		assertEquals(tmpLauncherList.get(0).getName(), "Ballista");
+		assertEquals(tmpLauncherList.get(1).getName(), "Catapult");
+		assertEquals(tmpLauncherList.get(2).getName(), "Trebuchet");
 
 	}
 

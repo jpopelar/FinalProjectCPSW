@@ -40,14 +40,24 @@ public class BattleField {
 		// all the different launchers will be loaded in separate function from separate file
 	}
 	
-	public void loadLaunchers() {
-		// `TODO: implement
-		
+	public void loadLaunchers() throws BadConfigException {
+		try {
+			FileReader launchFile = new FileReader(launchersFileName);
+			Scanner tmpScanner = new Scanner(launchFile);
+			while (tmpScanner.hasNextLine()) {
+				String tmp = tmpScanner.nextLine();
+				String[] launcherData = new String[4]; // constant
+				launcherData = tmp.split(":"); // NOTE: Delimiter is ":"
+				Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), Integer.parseInt(launcherData[2]), launcherData[3]);
+				launcherList.add(tmpLauncher);
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Load question config error");		}
 	}
 	
 	public void loadQuestions()throws BadConfigException {
 		try {
-			FileReader questionFile = new FileReader("questionListTest.txt");
+			FileReader questionFile = new FileReader(questionFileName);
 			Scanner tempScanner = new Scanner(questionFile);
 			while (tempScanner.hasNextLine()) {
 				String tempQA = tempScanner.nextLine();
@@ -60,10 +70,10 @@ public class BattleField {
 				Question tmpQ = new Question(questAns[0], questAns[1], wrongA);
 				questionList.add(tmpQ);
 			}
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("Load question config error");		}
 	}
-	
 	
 	
 	
