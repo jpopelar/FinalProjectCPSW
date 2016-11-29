@@ -11,12 +11,11 @@ import java.util.Scanner;
 public class BattleField {
 	
 	private static BattleField theInstance = new BattleField();
-	
+	private ArrayList<Level> levelList = new ArrayList<Level>();
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
 	private int theLauncher, theMissile;
-	public static Target theTarget;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
@@ -44,6 +43,7 @@ public class BattleField {
 	public void initialize() throws BadConfigException {
 		loadLaunchers();
 		loadQuestions();
+		// TODO: deal with levels
 	}
 	
 	public void loadLaunchers() throws BadConfigException {
@@ -52,9 +52,9 @@ public class BattleField {
 			Scanner tmpScanner = new Scanner(launchFile);
 			while (tmpScanner.hasNextLine()) {
 				String tmp = tmpScanner.nextLine();
-				String[] launcherData = new String[4]; // constant
+				String[] launcherData = new String[3]; // constant
 				launcherData = tmp.split(":"); // NOTE: Delimiter is ":"
-				Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), Integer.parseInt(launcherData[2]), launcherData[3]);
+				Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), launcherData[2]);
 				launcherList.add(tmpLauncher);
 			}
 			tmpScanner.close();
