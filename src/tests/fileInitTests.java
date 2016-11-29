@@ -42,9 +42,10 @@ public class fileInitTests {
 	 * Target Location
 	 */
 	@Test
-	public void testLocs(){
+	public void testLevels(){
 		// LEVEL 1
-		Level l1 = new Level(1);
+		
+		Level l1 = field.getLevelList().get(0);
 		// Test launcher location as specified in config file
 		assertEquals(5, l1.getLauncherXLoc());
 		assertEquals(0, l1.getLauncherYLoc());
@@ -54,7 +55,7 @@ public class fileInitTests {
 		assertEquals(0, tmpTargs.get(0).getYLoc());
 		
 		// LEVEL 2
-		Level l2 = new Level(2);
+		Level l2 = field.getLevelList().get(1);
 		// Test launcher location as specified in config file
 		assertEquals(8, l2.getLauncherXLoc());
 		assertEquals(3, l2.getLauncherYLoc());
