@@ -17,33 +17,32 @@ public class fileInitTests {
 	@BeforeClass
 	public static void init() {
 		field = BattleField.getInstance();
-		// load config files for testing
+		// harcode the file names and load up the battleField
+		field.setLaunchersFile("launcherConfig.txt");
+		field.setQuestionFile("questionListTest.txt");
+		field.setFieldFile("battleField.txt");
 		
 		try {
-			field.setLaunchersFile("launcherConfig.txt");
-			field.setQuestionFile("questionListTest.txt");
-			field.loadBattleField();
+			field.initialize();
 		} catch (BadConfigException e) {
 			System.out.println("Error loading config files, please check before continuing.");
 		}
-		
-		// harcode the file names and load up the battleField
-		// use setter to load config files
 	}	
 	
 	@Test
-	public void testDims() {
+	public void testBattleFieldConfig() {
 		// assertEquals board dims are same as specified in config file
-		assertEquals(field.getXDim(), 100);
-		assertEquals(field.getYDim(), 25);
+		assertEquals(100, field.getXDim());
+		assertEquals(25, field.getYDim());
+		assertEquals(2, field.getLevelList().size());
 	}
+	
 	/**
 	 * Test target and launcher locs as specified in the level config files
 	 * Target Location
 	 */
 	@Test
 	public void testLocs(){
-		
 		// LEVEL 1
 		Level l1 = new Level(1);
 		// Test launcher location as specified in config file
@@ -67,7 +66,6 @@ public class fileInitTests {
 		// Test second target
 		assertEquals(20, tmpTargs.get(1).getXLoc());
 		assertEquals(0, tmpTargs.get(1).getYLoc());
-		
 	}
 	
 	@Test
