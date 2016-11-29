@@ -19,16 +19,15 @@ public class fileInitTests {
 	
 	@BeforeClass
 	public static void init() {
-		field = BattleField.getInstance();
+		BattleField field = BattleField.getInstance();
 		// load config files for testing
-		field.loadBattleField();
+		
 		try {
 			field.setLaunchersFile("LauncherConfig.txt");
-			field.loadLaunchers();
 			field.setQuestionFile("questionListTest.txt");
-			field.loadQuestions();
+			field.loadBattleField();
 		} catch (BadConfigException e) {
-			System.out.println("Load question config error");
+			System.out.println("Error loading config files, please check before continuing.");
 		}
 		
 		// harcode the file names and load up the battleField

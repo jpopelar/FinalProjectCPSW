@@ -33,11 +33,17 @@ public class BattleField {
 	
 	
 	/*************************** FILE LOADERS ***************************/
-	public void loadBattleField() {
+	public void loadBattleField() throws BadConfigException {
 		// `TODO: implement
 		// handles loading up the dimension of the board
 		// 	and the target / launcher locations
 		// all the different launchers will be loaded in separate function from separate file
+		initialize();
+	}
+	
+	public void initialize() throws BadConfigException {
+		loadLaunchers();
+		loadQuestions();
 	}
 	
 	public void loadLaunchers() throws BadConfigException {
@@ -51,8 +57,9 @@ public class BattleField {
 				Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), Integer.parseInt(launcherData[2]), launcherData[3]);
 				launcherList.add(tmpLauncher);
 			}
+			tmpScanner.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("Load question config error");		}
+			System.out.println("Load launcher config error");		}
 	}
 	
 	public void loadQuestions()throws BadConfigException {
@@ -70,6 +77,7 @@ public class BattleField {
 				Question tmpQ = new Question(questAns[0], questAns[1], wrongA);
 				questionList.add(tmpQ);
 			}
+			tempScanner.close();
 			
 		} catch (FileNotFoundException e) {
 			System.out.println("Load question config error");		}
