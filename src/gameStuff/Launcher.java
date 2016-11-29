@@ -1,16 +1,17 @@
 package gameStuff;
 
 public class Launcher {
-	public final int YLOC = 0;
-	private int xLoc;
+	private int xLoc, yLoc;
 	private int velocity;
 	private String launcherName, imageName;
 	
-	public Launcher(String launcherName, int xLoc, int velocity, String imageName) {
+	public Launcher(String launcherName, int velocity, String imageName) {
 		this.launcherName = launcherName;
-		this.xLoc = xLoc;
 		this.velocity = velocity;
 		this.imageName = imageName;
+		// default location
+		this.xLoc = 5;
+		this.yLoc = 0;
 	}
 	
 	public int getXLoc() {
@@ -23,6 +24,14 @@ public class Launcher {
 
 	public String getName(){
 		return this.launcherName;
+	}
+
+	public void setxLoc(int xLoc) {
+		this.xLoc = xLoc;
+	}
+
+	public void setyLoc(int yLoc) {
+		this.yLoc = yLoc;
 	}
 
 }
