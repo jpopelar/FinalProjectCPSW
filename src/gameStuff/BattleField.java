@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class BattleField {
 	
 	private static BattleField theInstance = new BattleField();
+	
 	private ArrayList<Level> levelList = new ArrayList<Level>();
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
@@ -43,7 +44,6 @@ public class BattleField {
 	public void initialize() throws BadConfigException {
 		loadLaunchers();
 		loadQuestions();
-		// TODO: deal with levels
 	}
 	
 	public void loadLaunchers() throws BadConfigException {
