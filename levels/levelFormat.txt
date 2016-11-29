@@ -1,12 +1,9 @@
 Name of Level
-# of Launchers, # of Targets
-x, y locations of launchers
-.
-.
-.
+# of Targets
+x, y locations of one and only launcher
 x, y locations of targets
-.
-.
+. 
+.  rest of target locations
 .
 
 
