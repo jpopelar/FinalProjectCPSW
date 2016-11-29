@@ -29,6 +29,9 @@ public class fileInitTests {
 		}
 	}	
 	
+	/**
+	 * Test the dimensions of the battlefield and ensures the proper amount of levels are present
+	 */
 	@Test
 	public void testBattleFieldConfig() {
 		// assertEquals board dims are same as specified in config file
@@ -39,12 +42,10 @@ public class fileInitTests {
 	
 	/**
 	 * Test target and launcher locs as specified in the level config files
-	 * Target Location
 	 */
 	@Test
 	public void testLevels(){
 		// LEVEL 1
-		
 		Level l1 = field.getLevelList().get(0);
 		// Test launcher location as specified in config file
 		assertEquals(5, l1.getLauncherXLoc());

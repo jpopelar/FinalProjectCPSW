@@ -33,7 +33,6 @@ public class BattleField {
 		loadLaunchers();
 		loadQuestions();
 		loadBattleField();
-		// TODO: load up levels
 	}
 	
 	
