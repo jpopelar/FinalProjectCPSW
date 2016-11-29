@@ -44,6 +44,7 @@ public class BattleField {
 	public void initialize() throws BadConfigException {
 		loadLaunchers();
 		loadQuestions();
+		System.out.println(questionList);
 	}
 	
 	public void loadLaunchers() throws BadConfigException {

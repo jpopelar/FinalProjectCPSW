@@ -19,7 +19,7 @@ public class fileInitTests {
 	
 	@BeforeClass
 	public static void init() {
-		BattleField field = BattleField.getInstance();
+		field = BattleField.getInstance();
 		// load config files for testing
 		
 		try {
