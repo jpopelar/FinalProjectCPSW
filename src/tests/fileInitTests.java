@@ -8,10 +8,7 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import gameStuff.BadConfigException;
-import gameStuff.BattleField;
-import gameStuff.Launcher;
-import gameStuff.Question;
+import gameStuff.*;
 
 public class fileInitTests {
 	
@@ -40,19 +37,36 @@ public class fileInitTests {
 		assertEquals(field.getXDim(), 100);
 		assertEquals(field.getYDim(), 25);
 	}
-	
+	/**
+	 * Test target and launcher locs as specified in the level config files
+	 * Target Location
+	 */
 	@Test
 	public void testLocs(){
-		// test target and launcher locs as specified in the config file
-		// Target Location
-		//assertEquals(field.theTarget.getXLoc(), 75);
-		//assertEquals(field.theTarget.getYLoc(), 0);
 		
-		// Launcher Location
-		// Ensure all launchers have same location
-		assertEquals(field.getLaunchers().get(0).getXLoc(), 10);
-		assertEquals(field.getLaunchers().get(1).getXLoc(), 10);
-		// Note that the launcher is hard coded at 0 and not able to be accessed
+		// LEVEL 1
+		Level l1 = new Level(1);
+		// Test launcher location as specified in config file
+		assertEquals(5, l1.getLauncherXLoc());
+		assertEquals(0, l1.getLauncherYLoc());
+		// Test the one target for this levels location
+		ArrayList<Target> tmpTargs = l1.getTargetList();
+		assertEquals(25, tmpTargs.get(0).getXLoc());
+		assertEquals(0, tmpTargs.get(0).getYLoc());
+		
+		// LEVEL 2
+		Level l2 = new Level(2);
+		// Test launcher location as specified in config file
+		assertEquals(8, l2.getLauncherXLoc());
+		assertEquals(3, l2.getLauncherYLoc());
+		// Test the one target for this levels location
+		tmpTargs = l2.getTargetList();
+		// Test first target
+		assertEquals(30, tmpTargs.get(0).getXLoc());
+		assertEquals(10, tmpTargs.get(0).getYLoc());
+		// Test second target
+		assertEquals(20, tmpTargs.get(1).getXLoc());
+		assertEquals(0, tmpTargs.get(1).getYLoc());
 		
 	}
 	
