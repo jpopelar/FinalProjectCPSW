@@ -1,0 +1,12 @@
+Name of Level
+# of Launchers, # of Targets
+x, y locations of launchers
+.
+.
+.
+x, y locations of targets
+.
+.
+.
+
+
