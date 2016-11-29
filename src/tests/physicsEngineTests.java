@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import gameStuff.BadConfigException;
 import gameStuff.BattleField;
 import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
@@ -69,10 +68,10 @@ public class physicsEngineTests {
 		double y5 = 0, y6 = 27.47, y7 = 45.13, y8 = 47.48;
 		double v1 = 38.6;
 		double phi = .9948;
-		assertEquals(PhysicsEngine.findXPos(v1, phi, t1), y5, DELTA);
-		assertEquals(PhysicsEngine.findXPos(v1, phi, t2), y6, DELTA);
-		assertEquals(PhysicsEngine.findXPos(v1, phi, t3), y7, DELTA);
-		assertEquals(PhysicsEngine.findXPos(v1, phi, t4), y8, DELTA);
+		assertEquals(PhysicsEngine.findYPos(v1, phi, t1), y5, DELTA);
+		assertEquals(PhysicsEngine.findYPos(v1, phi, t2), y6, DELTA);
+		assertEquals(PhysicsEngine.findYPos(v1, phi, t3), y7, DELTA);
+		assertEquals(PhysicsEngine.findYPos(v1, phi, t4), y8, DELTA);
 	}
 
 }
