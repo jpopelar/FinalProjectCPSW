@@ -2,16 +2,19 @@ package gameStuff;
 
 public class Target {
 	private int xLoc, yLoc;
+	// TODO: deal with size of target
 	
-	public Target() {
+	public Target(int x, int y) {
+		xLoc = x;
+		yLoc = y;
 		
 	}
 	
 	public int getXLoc() {
-		return 0;
+		return xLoc;
 	}
 	
 	public int getYLoc() {
-		return 0;
+		return yLoc;
 	}
 }
