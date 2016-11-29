@@ -16,7 +16,7 @@ public class BattleField {
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
-	private int theLauncher, theMissile;
+	private int theLauncher, theMissile, numLevels;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
@@ -29,22 +29,46 @@ public class BattleField {
 	}
 	
 	
-	
-	
-	
-	/*************************** FILE LOADERS ***************************/
-	public void loadBattleField() throws BadConfigException {
-		// `TODO: implement
-		// handles loading up the dimension of the board
-		// 	and the target / launcher locations
-		// all the different launchers will be loaded in separate function from separate file
-		initialize();
-	}
-	
 	public void initialize() throws BadConfigException {
 		loadLaunchers();
 		loadQuestions();
+		loadBattleField();
+		// TODO: load up levels
 	}
+	
+	
+	/*************************** FILE LOADERS ***************************/
+	
+	public void loadBattleField() {
+		// TODO: implement
+		// handles loading up the dimension of the board
+		// 	and the target / launcher locations
+		// all the different launchers will be loaded in separate function from separate file
+		try {
+			FileReader launchFile = new FileReader(battleFieldFileName);
+			Scanner tmpScanner = new Scanner(launchFile);
+			String tmp = tmpScanner.nextLine();
+			
+			String[] data = new String[2]; // constant
+			data = tmp.split(", "); // NOTE: Delimiter is ", "
+			xDim = Integer.parseInt(data[0]);
+			yDim = Integer.parseInt(data[1]);
+			
+			tmp = tmpScanner.nextLine();
+			data = tmp.split(", "); // NOTE: Delimiter is ", "
+			numLevels = Integer.parseInt(data[0]);
+			
+			tmpScanner.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Load battlefield config error");		
+		}
+		
+		// Load up levels into an arrayList
+		for (int i = 1; i <= numLevels; i++){
+			levelList.add(new Level(i));
+		}
+	}
+	
 	
 	public void loadLaunchers() throws BadConfigException {
 		try {
@@ -117,6 +141,10 @@ public class BattleField {
 
 	public ArrayList<Launcher> getLaunchers(){
 		return launcherList;
+	}
+
+	public ArrayList<Level> getLevelList() {
+		return levelList;
 	}
 	
 
