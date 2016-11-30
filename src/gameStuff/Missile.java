@@ -1,19 +1,13 @@
 package gameStuff;
 
 public class Missile {
-	private double mass;
 	int x, y; // locations
 	
-	public Missile(double m, int startx, int starty){
-		mass = m;
+	public Missile(int startx, int starty){
 		x = startx;
 		y = starty;
 	}
 	
-	public double getMass(){
-		return mass;
-	}
-
 	public int getXLoc() {
 		return x;
 	}

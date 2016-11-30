@@ -40,7 +40,7 @@ public class launchTests {
 	 */
 	@Test
 	public void testInteraction() {
-		Missile m = new Missile(10, 10, 10);
+		Missile m = new Missile(10, 10);
 		Target t1 = new Target(20,20);
 		// NOTE: target width is 5
 		t1.interact(m);
