@@ -25,4 +25,7 @@ public class Target {
 		// test if in y-range
 		
 	}
+	public boolean wasHit() {
+		return wasHit;
+	}
 }
