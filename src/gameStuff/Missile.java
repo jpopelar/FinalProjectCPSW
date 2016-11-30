@@ -2,18 +2,29 @@ package gameStuff;
 
 public class Missile {
 	private double mass;
+	int x, y; // locations
 	
-	public Missile(){
-		
+	public Missile(double m, int startx, int starty){
+		mass = m;
+		x = startx;
+		y = starty;
 	}
 	
 	public double getMass(){
 		return mass;
 	}
 
-	public double getPosition() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getXLoc() {
+		return x;
+	}
+	
+	public int getYLoc() {
+		return y;
+	}
+	
+	public void move(int xLoc, int yLoc) {
+		this.x = xLoc;
+		this.y = yLoc;
 	}
 
 }
