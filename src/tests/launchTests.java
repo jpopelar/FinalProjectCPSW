@@ -40,20 +40,23 @@ public class launchTests {
 	 */
 	@Test
 	public void testInteraction() {
-		Missile m = new Missile(10, 15, 15);
+		Missile m = new Missile(10, 10, 10);
 		Target t1 = new Target(20,20);
 		// NOTE: target width is 5
 		t1.interact(m);
 		assertFalse(t1.wasHit());
 		m.move(19, 21);
+		t1.interact(m);
 		assertTrue(t1.wasHit());
 		
 		Target t2 = new Target(45,45);
 		t2.interact(m);
 		assertFalse(t2.wasHit());
 		m.move(20, 20);
+		t2.interact(m);
 		assertFalse(t2.wasHit());
 		m.move(45, 45);
+		t2.interact(m);
 		assertTrue(t2.wasHit());
 	}
 
