@@ -28,6 +28,32 @@ public class launchTests {
 		}
 	}	
 	
+	
+	/**
+	 * Test the interaction between missile and target
+	 */
+	@Test
+	public void testInteraction() {
+		Missile m = new Missile(10, 10);
+		Target t1 = new Target(20,20);
+		// NOTE: target width is 5
+		t1.interact(m);
+		assertFalse(t1.wasHit());
+		m.move(19, 21);
+		t1.interact(m);
+		assertTrue(t1.wasHit());
+		
+		Target t2 = new Target(45,45);
+		t2.interact(m);
+		assertFalse(t2.wasHit());
+		m.move(20, 20);
+		t2.interact(m);
+		assertFalse(t2.wasHit());
+		m.move(45, 45);
+		t2.interact(m);
+		assertTrue(t2.wasHit());
+	}
+	
 	/**
 	 * Test that the battlefield's launcher actually launches missiles
 	 * Test that the missiles location gets updated correctly
@@ -61,29 +87,5 @@ public class launchTests {
 		assertTrue(targs.get(1).wasHit());
 	}
 	
-	/**
-	 * Test the interaction between missile and target
-	 */
-	@Test
-	public void testInteraction() {
-		Missile m = new Missile(10, 10);
-		Target t1 = new Target(20,20);
-		// NOTE: target width is 5
-		t1.interact(m);
-		assertFalse(t1.wasHit());
-		m.move(19, 21);
-		t1.interact(m);
-		assertTrue(t1.wasHit());
-		
-		Target t2 = new Target(45,45);
-		t2.interact(m);
-		assertFalse(t2.wasHit());
-		m.move(20, 20);
-		t2.interact(m);
-		assertFalse(t2.wasHit());
-		m.move(45, 45);
-		t2.interact(m);
-		assertTrue(t2.wasHit());
-	}
 
 }
