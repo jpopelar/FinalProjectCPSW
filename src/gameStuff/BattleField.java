@@ -106,7 +106,13 @@ public class BattleField {
 			System.out.println("Load question config error");		}
 	}
 	
+	/*************************** GAMEPLAY ***************************/
 	
+	public void launch() {
+		// get the missile and set its location
+		// update the missiles location at some time interval
+		// continually call the interact method for all available targets in the level with that missile
+	}
 	
 	
 	/*************************** SETTERS ***************************/
