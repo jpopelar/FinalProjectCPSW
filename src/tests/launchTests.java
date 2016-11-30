@@ -2,6 +2,8 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -32,7 +34,31 @@ public class launchTests {
 	 */
 	@Test
 	public void testLaunch() {
-		fail("Not yet implemented");
+		field.launch(90); // launch at angle that will not hit a single target in level 1
+		ArrayList<Target> targs = field.getCurrentLevel().getTargetList();
+		for (Target t: targs) {
+			assertFalse(t.wasHit());
+		}
+		// TODO: figure out correct angle to hit that target
+		field.launch(0); // launch at angle that will hit specific target in level 1
+		assertTrue(targs.get(0).wasHit());
+		
+		// Now do level 2 targets
+		field.incrementLevel();
+		targs = field.getCurrentLevel().getTargetList();
+		field.launch(90); // launch at angle that will not hit a single target in level 2
+		for (Target t: targs) {
+			assertFalse(t.wasHit());
+		}
+		// TODO: figure out correct angle to hit first target
+		field.launch(0); // launch at angle that will hit specific target in level 2
+		assertTrue(targs.get(0).wasHit());
+		assertFalse(targs.get(1).wasHit());
+		// TODO: figure out correct angle to hit second target
+		field.launch(0); // launch at angle that will hit specific target in level 2
+		// make sure both targets are now seen as hit
+		assertTrue(targs.get(0).wasHit());
+		assertTrue(targs.get(1).wasHit());
 	}
 	
 	/**

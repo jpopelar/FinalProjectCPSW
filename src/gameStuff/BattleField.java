@@ -16,7 +16,7 @@ public class BattleField {
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
-	private int theLauncher, theMissile, numLevels;
+	private int theLauncher, theMissile, numLevels, currentLevel;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
@@ -108,12 +108,15 @@ public class BattleField {
 	
 	/*************************** GAMEPLAY ***************************/
 	
-	public void launch() {
+	public void launch(double angle) {
 		// get the missile and set its location
 		// update the missiles location at some time interval
 		// continually call the interact method for all available targets in the level with that missile
 	}
 	
+	public void incrementLevel() {
+		currentLevel++;
+	}
 	
 	/*************************** SETTERS ***************************/
 	
@@ -150,6 +153,10 @@ public class BattleField {
 
 	public ArrayList<Level> getLevelList() {
 		return levelList;
+	}
+	
+	public Level getCurrentLevel() {
+		return levelList.get(currentLevel);
 	}
 	
 
