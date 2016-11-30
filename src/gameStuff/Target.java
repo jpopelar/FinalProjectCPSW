@@ -23,7 +23,10 @@ public class Target {
 		// create a space around target
 		// test if in x-range
 		// test if in y-range
-		
+		if (Math.abs(xLoc - m.getXLoc()) <= width / 2 &&
+			Math.abs(yLoc - m.getYLoc()) <= width / 2	) {
+			this.wasHit = true;
+		}
 	}
 	public boolean wasHit() {
 		return wasHit;
