@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -15,7 +16,7 @@ import javax.swing.border.TitledBorder;
 
 public class Quiz extends JDialog{
 	private Question q;
-	private JPanel options, question, enterSelection;
+	private JPanel options, enterSelection;
 	private ArrayList<JRadioButton> choices;
 	private String userSelection;
 	
@@ -23,19 +24,18 @@ public class Quiz extends JDialog{
 		this.q = q;
 		this.options = createOptions();
 		this.enterSelection = createEnterButton();	
+		add(options);
+		add(enterSelection);
 		setModal(true);
 		setLocationRelativeTo(null);
 		
 	}
 
-	private void s() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private JPanel createEnterButton() {
+		JPanel buttonPanel = new JPanel();
+		JButton button = new JButton("OK");
 		
-		return null;
+		return buttonPanel;
 	}
 
 	private JPanel createOptions() {
@@ -47,7 +47,7 @@ public class Quiz extends JDialog{
 		//Create button group
 		ButtonGroup group = new ButtonGroup();
 		
-		//Get random, and place all 4 potential answers in an array list
+		//Place all 4 potential answers in an array list
 		Random rand = new Random();
 		ArrayList<String> ans = new ArrayList<>();	
 		for(String s : q.getWrongResponses()) ans.add(s);
@@ -73,6 +73,20 @@ public class Quiz extends JDialog{
 			   if(b.isSelected()) 
 				   userSelection = b.toString();
 		   }
+		  }
+	}
+	
+	private class ButtonListener implements ActionListener {
+		  public void actionPerformed(ActionEvent e){
+		   if(userSelection.equals(q.getAnswer())){
+			   // diplay victory splash
+			   dispose();
+		   }
+		   else {
+			   //splash wrong!
+			   //loop back to quiz
+		   }
+			   
 		  }
 	}
 }
