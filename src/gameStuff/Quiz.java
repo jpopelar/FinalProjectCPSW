@@ -16,12 +16,13 @@ import javax.swing.border.TitledBorder;
 public class Quiz extends JDialog{
 	private Question q;
 	private JPanel options, question, enterSelection;
+	private ArrayList<JRadioButton> choices;
+	private String userSelection;
 	
 	public Quiz(Question q){
 		this.q = q;
 		this.options = createOptions();
-		this.enterSelection = createEnterButton();
-		s();
+		this.enterSelection = createEnterButton();	
 		setModal(true);
 		setLocationRelativeTo(null);
 		
@@ -60,19 +61,18 @@ public class Quiz extends JDialog{
 			optionPanel.add(tmp);
 			group.add(tmp);
 			tmp.addActionListener(listener);
-
+			choices.add(tmp);
 		}
 		
 		return optionPanel;
 	}
 	
 	private class RadioListener implements ActionListener {
-		  public void actionPerformed(ActionEvent e)
-		  {
-		   /* if (musicButton.isSelected())
-		      dp.setMusic("music");
-		    else 
-		      dp.setMusic("no music");*/
+		  public void actionPerformed(ActionEvent e){
+		   for(JRadioButton b : choices){
+			   if(b.isSelected()) 
+				   userSelection = b.toString();
+		   }
 		  }
-		}
+	}
 }
