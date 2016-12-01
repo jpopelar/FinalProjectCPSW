@@ -117,17 +117,16 @@ public class BattleField {
 	/*************************** GAMEPLAY ***************************/
 	
 	private class TimerListener implements ActionListener {
-		Missile currentMissile = theMissile;
 		Launcher currentLauncher = launcherList.get(theLauncher);
-		Level currentLevelPlayed = levelList.get(currentLevel);
-		ArrayList<Target> currentTargets = currentLevelPlayed.getTargetList();		
+		Level currentLevelPlayed = levelList.get(currentLevel);		
 		public void actionPerformed(ActionEvent arg0) {
-			currentMissile.move(PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime), PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime));
-			if (currentMissile.getXLoc() == PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle)) {
+			theMissile.move(PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime), PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime));
+			System.out.println("(" + theMissile.getXLoc() +", " + theMissile.getYLoc() +")");
+			if (theMissile.getXLoc() == PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle)) {
 				launchOver = true;
 			}
-			for (Target t : currentTargets) {
-				t.interact(currentMissile);
+			for (Target t : currentLevelPlayed.getTargetList()) {
+				t.interact(theMissile);
 				if (t.wasHit()) {
 					launchOver = true;
 				}
@@ -136,14 +135,17 @@ public class BattleField {
 		
 	}
 	
-	public void launch(double angle) {
-		launchOver = false;	//Loop check condition so function will idle until we need to reset
-		theMissile.move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());	//Resets the missile's location
+	public void launch(int angle) {
+		// Loop check condition so function will idle until we need to reset
+		launchOver = false;	
+		// Set userAngle so it can be accesed by timer to perform calculations
+		userAngle = angle;
+		// Move missile to the location of the launcher - resests for each launch
+		theMissile.move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());
 		Timer levelTimer = new Timer(17, new TimerListener());
 		levelTimer.start();
-		while (!launchOver) {
-		}
-	
+		// Wait to end this method until missile is finished moving
+		while (!launchOver) {}
 	}
 	
 	public void incrementLevel() {
