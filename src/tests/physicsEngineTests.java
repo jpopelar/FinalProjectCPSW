@@ -10,7 +10,7 @@ import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
 
 public class physicsEngineTests {
-	final double DELTA = .25;
+	final double DELTA = .01;
 
 	@Test
 	public void testXEnd() {
@@ -20,7 +20,7 @@ public class physicsEngineTests {
 		
 		double endX1 = 55.17, endX2 = 138.75;
 		double v01 = 25, v02 = 38.6;
-		double theta1 = .5235, theta2 = .9948;
+		double theta1 = 30, theta2 = 57;
 		assertEquals(PhysicsEngine.findXEnd(v01, theta1), endX1, DELTA);
 		assertEquals(PhysicsEngine.findXEnd(v02, theta2), endX2, DELTA);
 	}
@@ -34,7 +34,7 @@ public class physicsEngineTests {
 		//Input values selected arbitrarily, outputs explicitly calculated
 		double x1 = 0, x2 = 21.65, x3 = 43.30, x4 = 47.63;
 		double v0 = 25;
-		double theta = .5235;
+		double theta = 30;
 		double t1 = 0, t2 = 1, t3 = 2, t4 = 2.2;
 		assertEquals(PhysicsEngine.findXPos(v0, theta, t1), x1, DELTA);
 		assertEquals(PhysicsEngine.findXPos(v0, theta, t2), x2, DELTA);
@@ -43,7 +43,7 @@ public class physicsEngineTests {
 		
 		double x5 = 0, x6 = 21.02, x7 = 42.05, x8 = 46.25;
 		double v1 = 38.6;
-		double phi = .9948;
+		double phi = 57;
 		assertEquals(PhysicsEngine.findXPos(v1, phi, t1), x5, DELTA);
 		assertEquals(PhysicsEngine.findXPos(v1, phi, t2), x6, DELTA);
 		assertEquals(PhysicsEngine.findXPos(v1, phi, t3), x7, DELTA);
@@ -58,7 +58,7 @@ public class physicsEngineTests {
 		
 		double y1 = 0, y2 = 7.6, y3 = 5.38, y4 = 3.76;
 		double v0 = 25;
-		double theta = .5235;
+		double theta = 30;
 		double t1 = 0, t2 = 1, t3 = 2, t4 = 2.2;
 		assertEquals(PhysicsEngine.findYPos(v0, theta, t1), y1, DELTA);
 		assertEquals(PhysicsEngine.findYPos(v0, theta, t2), y2, DELTA);
@@ -67,7 +67,7 @@ public class physicsEngineTests {
 		
 		double y5 = 0, y6 = 27.47, y7 = 45.13, y8 = 47.48;
 		double v1 = 38.6;
-		double phi = .9948;
+		double phi = 57;
 		assertEquals(PhysicsEngine.findYPos(v1, phi, t1), y5, DELTA);
 		assertEquals(PhysicsEngine.findYPos(v1, phi, t2), y6, DELTA);
 		assertEquals(PhysicsEngine.findYPos(v1, phi, t3), y7, DELTA);
