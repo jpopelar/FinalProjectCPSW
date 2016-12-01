@@ -21,8 +21,8 @@ public class physicsEngineTests {
 		double endX1 = 55.17, endX2 = 138.75;
 		double v01 = 25, v02 = 38.6;
 		double theta1 = 30, theta2 = 57;
-		assertEquals(PhysicsEngine.findXEnd(v01, theta1), endX1, DELTA);
-		assertEquals(PhysicsEngine.findXEnd(v02, theta2), endX2, DELTA);
+		assertEquals(PhysicsEngine.findXEnd(v01, theta1, 0), endX1, DELTA);
+		assertEquals(PhysicsEngine.findXEnd(v02, theta2, 0), endX2, DELTA);
 	}
 	
 	@Test
