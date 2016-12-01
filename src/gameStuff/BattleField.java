@@ -1,11 +1,15 @@
 package gameStuff;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import javax.swing.Timer;
 
 
 public class BattleField {
@@ -21,6 +25,10 @@ public class BattleField {
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
 	private int xDim, yDim;
+	private int userAngle;
+	private int currentTime = 0;
+	
+	private boolean launchOver = false;
 	
 	private BattleField() {}
 	
@@ -108,10 +116,34 @@ public class BattleField {
 	
 	/*************************** GAMEPLAY ***************************/
 	
+	private class TimerListener implements ActionListener {
+		Missile currentMissile = missileList.get(theMissile);
+		Launcher currentLauncher = launcherList.get(theLauncher);
+		Level currentLevelPlayed = levelList.get(currentLevel);
+		ArrayList<Target> currentTargets = currentLevelPlayed.getTargetList();		
+		public void actionPerformed(ActionEvent arg0) {
+			currentMissile.move(PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime), PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime));
+			if (currentMissile.getXLoc() == PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle)) {
+				launchOver = true;
+			}
+			for (Target t : currentTargets) {
+				t.interact(currentMissile);
+				if (t.wasHit()) {
+					launchOver = true;
+				}
+			}
+		}
+		
+	}
+	
 	public void launch(double angle) {
-		// get the missile and set its location
-		// update the missiles location at some time interval
-		// continually call the interact method for all available targets in the level with that missile
+		launchOver = false;	//Loop check condition so function will idle until we need to reset
+		missileList.get(theMissile).move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());	//Resets the missile's location
+		Timer levelTimer = new Timer(17, new TimerListener());
+		levelTimer.start();
+		while (!launchOver) {
+		}
+	
 	}
 	
 	public void incrementLevel() {

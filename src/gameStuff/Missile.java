@@ -16,9 +16,9 @@ public class Missile {
 		return y;
 	}
 	
-	public void move(int xLoc, int yLoc) {
-		this.x = xLoc;
-		this.y = yLoc;
+	public void move(double xLoc, double yLoc) {
+		this.x = (int) xLoc;
+		this.y = (int) yLoc;
 	}
 
 }
