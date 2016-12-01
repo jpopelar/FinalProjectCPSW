@@ -1,7 +1,7 @@
 package gameStuff;
 
 public class Missile {
-	int x, y; // locations
+	private int x, y; // locations
 	
 	public Missile(int startx, int starty){
 		x = startx;
