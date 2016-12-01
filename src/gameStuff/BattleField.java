@@ -19,8 +19,8 @@ public class BattleField {
 	private ArrayList<Level> levelList = new ArrayList<Level>();
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
-	private ArrayList<Missile> missileList = new ArrayList<Missile>();
-	private int theLauncher, theMissile, numLevels, currentLevel;
+	private Missile theMissile = new Missile(0,0);
+	private int theLauncher, numLevels, currentLevel;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
@@ -117,7 +117,7 @@ public class BattleField {
 	/*************************** GAMEPLAY ***************************/
 	
 	private class TimerListener implements ActionListener {
-		Missile currentMissile = missileList.get(theMissile);
+		Missile currentMissile = theMissile;
 		Launcher currentLauncher = launcherList.get(theLauncher);
 		Level currentLevelPlayed = levelList.get(currentLevel);
 		ArrayList<Target> currentTargets = currentLevelPlayed.getTargetList();		
@@ -138,7 +138,7 @@ public class BattleField {
 	
 	public void launch(double angle) {
 		launchOver = false;	//Loop check condition so function will idle until we need to reset
-		missileList.get(theMissile).move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());	//Resets the missile's location
+		theMissile.move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());	//Resets the missile's location
 		Timer levelTimer = new Timer(17, new TimerListener());
 		levelTimer.start();
 		while (!launchOver) {
