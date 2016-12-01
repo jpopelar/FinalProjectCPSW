@@ -52,7 +52,7 @@ public class fileInitTests {
 		assertEquals(0, l1.getLauncherYLoc());
 		// Test the one target for this levels location
 		ArrayList<Target> tmpTargs = l1.getTargetList();
-		assertEquals(25, tmpTargs.get(0).getXLoc());
+		assertEquals(20, tmpTargs.get(0).getXLoc());
 		assertEquals(0, tmpTargs.get(0).getYLoc());
 		
 		// LEVEL 2
@@ -63,10 +63,10 @@ public class fileInitTests {
 		// Test the one target for this levels location
 		tmpTargs = l2.getTargetList();
 		// Test first target
-		assertEquals(30, tmpTargs.get(0).getXLoc());
-		assertEquals(10, tmpTargs.get(0).getYLoc());
+		assertEquals(10, tmpTargs.get(0).getXLoc());
+		assertEquals(15, tmpTargs.get(0).getYLoc());
 		// Test second target
-		assertEquals(20, tmpTargs.get(1).getXLoc());
+		assertEquals(25, tmpTargs.get(1).getXLoc());
 		assertEquals(0, tmpTargs.get(1).getYLoc());
 	}
 	

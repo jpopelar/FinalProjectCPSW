@@ -130,6 +130,9 @@ public class BattleField {
 	public void setLaunchersFile(String n) {
 		this.launchersFileName = n;
 	}
+	public void setLauncher(int i) {
+		theLauncher = i;
+	}
 	
 	
 
