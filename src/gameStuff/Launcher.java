@@ -1,5 +1,7 @@
 package gameStuff;
 
+import java.util.ArrayList;
+
 public class Launcher {
 	private int xLoc, yLoc;
 	private int velocity;
@@ -13,6 +15,10 @@ public class Launcher {
 		this.xLoc = 5;
 		this.yLoc = 0;
 	}
+	
+	
+	
+	/******************** GET/SET **************************/
 	
 	public int getXLoc() {
 		return xLoc;

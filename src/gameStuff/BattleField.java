@@ -17,8 +17,10 @@ public class BattleField {
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private ArrayList<Missile> missileList = new ArrayList<Missile>();
 	private int theLauncher, theMissile, numLevels, currentLevel;
+	private Quiz quiz;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
+	
 	
 	private int xDim, yDim;
 	
@@ -116,6 +118,15 @@ public class BattleField {
 	
 	public void incrementLevel() {
 		currentLevel++;
+	}
+	
+	public void doQuiz(){
+		quiz = new Quiz(questionList.get(currentLevel));
+		quiz.setVisible(true);
+		// quiz dialog pops up
+		// user selects answer
+		// loop until correct
+		// close quiz
 	}
 	
 	/*************************** SETTERS ***************************/
