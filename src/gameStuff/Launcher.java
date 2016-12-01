@@ -24,6 +24,10 @@ public class Launcher {
 		return xLoc;
 	}
 	
+	public int getYLoc() {
+		return yLoc;
+	}
+	
 	public int getVelocity(){
 		return velocity;
 	}

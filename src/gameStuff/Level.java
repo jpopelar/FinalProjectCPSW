@@ -46,8 +46,8 @@ public class Level {
 			tmpScanner.close();
 		} catch (FileNotFoundException e) {
 			// TODO: implement prompt to user
+			System.out.println("File not found - level " + levelNum + " does not exist");	
 			levelNum = -1;
-			System.out.println("File not found - level " + levelNum + " does not exist");		
 		}
 	}
 
