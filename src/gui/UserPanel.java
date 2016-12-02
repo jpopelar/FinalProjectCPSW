@@ -69,7 +69,7 @@ public class UserPanel extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			for (Target t: field.getCurrentLevel().getTargetList()) {
 				if (!t.wasHit()) {
-					// display promt
+					// display prompt
 					JOptionPane err = new JOptionPane();
 					err.showMessageDialog(null, "Not all targets have been hit! \nLevel incomplete.");
 					return;
