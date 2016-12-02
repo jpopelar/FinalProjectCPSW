@@ -31,6 +31,7 @@ public class Quiz extends JDialog{
 		setModal(true);
 		setLocationRelativeTo(null);
 		setTitle("Quiz Time!");
+		setSize(400,200);
 		setVisible(true);
 	}
 
@@ -44,9 +45,9 @@ public class Quiz extends JDialog{
 	}
 
 	private JPanel createOptions() {
-		// Initialize panel
+		choices = new ArrayList<JRadioButton>();
 		JPanel optionPanel = new JPanel();
-		setLayout(new GridLayout(0,1));
+		optionPanel.setLayout(new GridLayout(0,1));
 		optionPanel.setBorder(new TitledBorder(new EtchedBorder(), q.getQuestion()));
 		
 		//Create button group
@@ -64,11 +65,10 @@ public class Quiz extends JDialog{
 		for(String s : ans){
 			JRadioButton tmp = new JRadioButton(s);
 			optionPanel.add(tmp);
-			group.add(tmp);
 			tmp.addActionListener(listener);
+			group.add(tmp);			
 			choices.add(tmp);
 		}
-		
 		return optionPanel;
 	}
 	
