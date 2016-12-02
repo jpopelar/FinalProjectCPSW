@@ -1,5 +1,6 @@
 package gameStuff;
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -9,10 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class BattleField {
+public class BattleField extends JPanel{
 	
 	private static BattleField theInstance = new BattleField();
 	
@@ -26,9 +28,10 @@ public class BattleField {
 	
 	private int xDim, yDim;
 	private int userAngle;
-	private int currentTime = 0;
-	
-	private boolean launchOver = false;
+	private double currentTime = 0.0;
+	Timer levelTimer;
+	private int timeInterval = 17;
+	private double milliTimeInterval = 0.017;
 	
 	private BattleField() {}
 	
@@ -116,40 +119,67 @@ public class BattleField {
 	
 	/*************************** GAMEPLAY ***************************/
 	
-	private class TimerListener implements ActionListener {
-		Launcher currentLauncher = launcherList.get(theLauncher);
-		Level currentLevelPlayed = levelList.get(currentLevel);		
-		public void actionPerformed(ActionEvent arg0) {
-			theMissile.move(PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime), PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime));
-			System.out.println("(" + theMissile.getXLoc() +", " + theMissile.getYLoc() +")");
-			if (theMissile.getXLoc() == PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle)) {
-				launchOver = true;
-			}
-			for (Target t : currentLevelPlayed.getTargetList()) {
-				t.interact(theMissile);
-				if (t.wasHit()) {
-					launchOver = true;
-				}
-			}
+	public void launch(int angle) {
+		// Loop check condition so function will idle until we need to reset
+		// Set time counter to 0
+		currentTime = 0.0;
+		// Set userAngle so it can be accesed by timer to perform calculations
+		userAngle = angle;
+		// Move missile to the location of the launcher - resests for each launch
+		theMissile.move(getCurrentLevel().getLauncherXLoc(), getCurrentLevel().getLauncherYLoc());
+		// Wait to end this method until missile is finished moving and continually performLaunch
+		levelTimer = new Timer(timeInterval, new TimerListener());
+		levelTimer.setRepeats(true);
+		levelTimer.start();
+		while (levelTimer.isRunning()) {
+			//System.out.println("launch not over");
 		}
 		
 	}
 	
-	public void launch(int angle) {
-		// Loop check condition so function will idle until we need to reset
-		launchOver = false;	
-		// Set userAngle so it can be accesed by timer to perform calculations
-		userAngle = angle;
-		// Move missile to the location of the launcher - resests for each launch
-		theMissile.move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());
-		Timer levelTimer = new Timer(17, new TimerListener());
-		levelTimer.start();
-		// Wait to end this method until missile is finished moving
-		while (!launchOver) {}
+	private class TimerListener implements ActionListener {
+		Missile currentMissile = theMissile;
+		Launcher currentLauncher = launcherList.get(theLauncher);
+		Level currentLevelPlayed = levelList.get(currentLevel);
+				
+		public void actionPerformed(ActionEvent arg0) {
+			double x = PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
+			double y = PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
+			theMissile.move(x, y);
+			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+			repaint();
+			if (/*theMissile.getXLoc() >= PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle, getCurrentLevel().getLauncherXLoc()) ||*/
+					theMissile.getYLoc() < 0) {
+				levelTimer.stop();
+			}
+			for (Target t : currentLevelPlayed.getTargetList()) {
+				if (t.interact(currentMissile)) {
+					//System.out.println("HIT");
+					levelTimer.stop();
+				}
+			}
+			currentTime += milliTimeInterval;
+			if (currentTime > 10 || theMissile.getXLoc() > xDim) {
+				levelTimer.stop();
+			}
+			
+		}
+		
 	}
 	
 	public void incrementLevel() {
 		currentLevel++;
+	}
+	/*************************** GUI STUFF ***************************/
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		launcherList.get(theLauncher).draw(g);
+		theMissile.draw(g);
+		for (Target t : levelList.get(currentLevel).getTargetList()) {
+			t.draw(g);
+		}
+		
 	}
 	
 	/*************************** SETTERS ***************************/
