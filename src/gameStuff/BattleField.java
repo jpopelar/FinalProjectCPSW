@@ -176,6 +176,8 @@ public class BattleField extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.setColor(new Color(31, 190, 214, 155));
+		g.fillRect(0, 0, xDim * GameWindow.SCALE_FACTOR, yDim * GameWindow.SCALE_FACTOR);
 		getCurrentLevel().draw(g);
 		launcherList.get(theLauncher).draw(g);
 		theMissile.draw(g);

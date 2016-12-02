@@ -35,7 +35,7 @@ public class Missile extends JComponent {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.GREEN);
+		g.setColor(Color.MAGENTA);
 		int x = (xLoc - (radius/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - radius) * GameWindow.SCALE_FACTOR;
 		
