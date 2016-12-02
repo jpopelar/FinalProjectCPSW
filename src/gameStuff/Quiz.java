@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EtchedBorder;
@@ -19,6 +20,7 @@ public class Quiz extends JDialog{
 	private JPanel options, enterSelection;
 	private ArrayList<JRadioButton> choices;
 	private String userSelection;
+	private BattleField field = BattleField.getInstance();
 	
 	public Quiz(Question q){
 		this.q = q;
@@ -28,7 +30,8 @@ public class Quiz extends JDialog{
 		add(enterSelection);
 		setModal(true);
 		setLocationRelativeTo(null);
-		
+		setTitle("Quiz Time!");
+		setVisible(true);
 	}
 
 	private JPanel createEnterButton() {
@@ -81,11 +84,13 @@ public class Quiz extends JDialog{
 	private class ButtonListener implements ActionListener {
 		  public void actionPerformed(ActionEvent e){
 		   if(userSelection.equals(q.getAnswer())){
-			   // diplay victory splash
+			   JOptionPane.showMessageDialog(null, "That answer is correct! Press OK to advance to the next level.");
 			   dispose();
+			   field.incrementLevel();
 		   }
 		   else {
 			   //splash wrong!
+			   JOptionPane.showMessageDialog(null, "That's not the right answer. Try again!");
 			   //loop back to quiz
 		   }
 			   

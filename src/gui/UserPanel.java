@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +15,7 @@ import javax.swing.border.TitledBorder;
 
 import gameStuff.BattleField;
 import gameStuff.Launcher;
+import gameStuff.Quiz;
 import gameStuff.Target;
 
 public class UserPanel extends JPanel {
@@ -75,7 +77,8 @@ public class UserPanel extends JPanel {
 					return;
 				}
 			}
-			// TODO: call doQuiz - make sure dialong locks
+			// TODO: call doQuiz - make sure dialog locks
+			field.doQuiz();
 			field.incrementLevel();
 		}	
 	}
