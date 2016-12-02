@@ -1,6 +1,13 @@
 package gameStuff;
 
-public class Target {
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
+import gui.GameWindow;
+
+public class Target extends JComponent {
 	private int xLoc, yLoc;
 	private boolean wasHit;
 	// TODO: deal with size of target
@@ -19,16 +26,23 @@ public class Target {
 	public int getYLoc() {
 		return yLoc;
 	}
-	public void interact(Missile m) {
+	public boolean interact(Missile m) {
 		// create a space around target
 		// test if in x-range
 		// test if in y-range
 		if (Math.abs(xLoc - m.getXLoc()) <= width / 2 &&
 			Math.abs(yLoc - m.getYLoc()) <= width / 2	) {
 			this.wasHit = true;
+			return true;
 		}
+		return false;
 	}
 	public boolean wasHit() {
 		return wasHit;
+	}
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.RED);
+		g.drawRect(xLoc * GameWindow.SCALE_FACTOR, yLoc * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR);
 	}
 }

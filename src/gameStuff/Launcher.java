@@ -28,7 +28,7 @@ public class Launcher extends JComponent {
 	
 	public void draw(Graphics g) {
 		g.setColor(Color.GREEN);
-		g.drawRect(field.getCurrentLevel().getLauncherXLoc() * GameWindow.SCALE_FACTOR, field.getCurrentLevel().getLauncherYLoc() * GameWindow.SCALE_FACTOR, 10 * GameWindow.SCALE_FACTOR, 10 * GameWindow.SCALE_FACTOR);
+		g.drawRect(field.getCurrentLevel().getLauncherXLoc() * GameWindow.SCALE_FACTOR, field.getCurrentLevel().getLauncherYLoc() * GameWindow.SCALE_FACTOR, 2 * GameWindow.SCALE_FACTOR, 2 * GameWindow.SCALE_FACTOR);
 	}
 
 }
