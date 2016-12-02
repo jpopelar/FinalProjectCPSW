@@ -66,7 +66,7 @@ public class fileInitTests {
 		assertEquals(10, tmpTargs.get(0).getXLoc());
 		assertEquals(15, tmpTargs.get(0).getYLoc());
 		// Test second target
-		assertEquals(25, tmpTargs.get(1).getXLoc());
+		assertEquals(20, tmpTargs.get(1).getXLoc());
 		assertEquals(0, tmpTargs.get(1).getYLoc());
 	}
 	
