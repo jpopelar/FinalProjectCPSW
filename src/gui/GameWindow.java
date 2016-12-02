@@ -16,7 +16,7 @@ import gameStuff.*;
 
 
 public class GameWindow extends JFrame{
-	BattleField field;
+	private static BattleField field;
 	private JMenuItem exitOpt;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -59,6 +59,7 @@ public class GameWindow extends JFrame{
 		this.setVisible(true);
 		
 	}
+	
 	
 	private class exitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
