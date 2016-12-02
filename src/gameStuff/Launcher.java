@@ -1,25 +1,21 @@
 package gameStuff;
 
-public class Launcher {
-	private int xLoc, yLoc;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
+import gui.GameWindow;
+
+public class Launcher extends JComponent {
 	private int velocity;
 	private String launcherName, imageName;
+	private static BattleField field = BattleField.getInstance();
 	
 	public Launcher(String launcherName, int velocity, String imageName) {
 		this.launcherName = launcherName;
 		this.velocity = velocity;
 		this.imageName = imageName;
-		// default location
-		this.xLoc = 5;
-		this.yLoc = 0;
-	}
-	
-	public int getXLoc() {
-		return xLoc;
-	}
-	
-	public int getYLoc() {
-		return yLoc;
 	}
 	
 	public int getVelocity(){
@@ -29,13 +25,10 @@ public class Launcher {
 	public String getName(){
 		return this.launcherName;
 	}
-
-	public void setxLoc(int xLoc) {
-		this.xLoc = xLoc;
-	}
-
-	public void setyLoc(int yLoc) {
-		this.yLoc = yLoc;
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.GREEN);
+		g.drawRect(field.getCurrentLevel().getLauncherXLoc() * GameWindow.SCALE_FACTOR, field.getCurrentLevel().getLauncherYLoc() * GameWindow.SCALE_FACTOR, 10 * GameWindow.SCALE_FACTOR, 10 * GameWindow.SCALE_FACTOR);
 	}
 
 }
