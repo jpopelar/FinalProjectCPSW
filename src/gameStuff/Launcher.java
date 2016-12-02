@@ -35,4 +35,7 @@ public class Launcher extends JComponent {
 		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 
+	public String toString() {
+		return launcherName;
+	}
 }

@@ -2,7 +2,9 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +33,7 @@ public class GameWindow extends JFrame{
 		field.setLaunchersFile("launcherConfig.txt");
 		field.setQuestionFile("questionListTest.txt");
 		field.setFieldFile("battleField.txt");
+		
 		try {
 			field.initialize();
 		} catch (BadConfigException e) {
@@ -49,14 +52,17 @@ public class GameWindow extends JFrame{
 		menu.add(exitOpt);
 		menuBar.add(menu);
 		
+		//setLayout(new GridLayout(0,0));
+		
 		add(field, BorderLayout.CENTER);
+		
+		UserPanel angleBox = new UserPanel();
+		add(angleBox, BorderLayout.EAST);
 		
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		
 	}
-	
-	
 	
 	private class exitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
