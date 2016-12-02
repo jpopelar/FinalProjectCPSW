@@ -49,7 +49,6 @@ public class UserPanel extends JPanel {
 	}
 	
 	private class LaunchListener implements ActionListener {
-
 		public void actionPerformed(ActionEvent e) {
 			if (launcherSelect.getSelectedItem().equals("Ballista")) {
 				BattleField.getInstance().setLauncher(0);
@@ -61,13 +60,11 @@ public class UserPanel extends JPanel {
 				BattleField.getInstance().setLauncher(2);
 			}
 			selectedAngle = (int) angleSelect.getSelectedItem();
-			//System.out.println(launcherSelect.getSelectedItem());
 			BattleField.getInstance().launch(selectedAngle);
 		}	
 	}
 	
 	private class NextListener implements ActionListener {
-
 		public void actionPerformed(ActionEvent e) {
 			for (Target t: BattleField.getInstance().getCurrentLevel().getTargetList()) {
 				if (!t.wasHit()) {

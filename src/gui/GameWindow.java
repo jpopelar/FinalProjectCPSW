@@ -20,6 +20,7 @@ public class GameWindow extends JFrame{
 	private JMenuItem exitOpt;
 	private JMenuBar menuBar;
 	private JMenu menu;
+	private UserPanel control;
 	public static int SCALE_FACTOR = 10;
 	
 	
@@ -33,31 +34,26 @@ public class GameWindow extends JFrame{
 		field.setLaunchersFile("launcherConfig.txt");
 		field.setQuestionFile("questionListTest.txt");
 		field.setFieldFile("battleField.txt");
-		
 		try {
 			field.initialize();
 		} catch (BadConfigException e) {
 			System.out.println("Error loading config files, please check before continuing.");
 		}
-		
 		setSize(field.getXDim() * SCALE_FACTOR, field.getYDim() * SCALE_FACTOR + 100);
 		
 		//initialize and display the menu
 		this.menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		this.menu = new JMenu("File");
-		
 		this.exitOpt = createFileExitItem();
 		exitOpt.addActionListener(new exitListener());
 		menu.add(exitOpt);
 		menuBar.add(menu);
 		
-		//setLayout(new GridLayout(0,0));
-		
 		add(field, BorderLayout.CENTER);
 		
-		UserPanel angleBox = new UserPanel();
-		add(angleBox, BorderLayout.EAST);
+		control = new UserPanel();
+		add(control, BorderLayout.EAST);
 		
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
