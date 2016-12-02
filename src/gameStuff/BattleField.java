@@ -148,7 +148,7 @@ public class BattleField extends JPanel{
 			double x = PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
 			double y = PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
 			theMissile.move(x, y);
-			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+			System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
 			repaint();
 			if (/*theMissile.getXLoc() >= PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle, getCurrentLevel().getLauncherXLoc()) ||*/
 					theMissile.getYLoc() < 0) {

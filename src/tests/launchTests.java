@@ -86,7 +86,7 @@ public class launchTests {
 		field.launch(30); // launch at angle that will hit specific target in level 2
 		// make sure both targets are now seen as hit
 		assertTrue(targs.get(0).wasHit());
-		//assertTrue(targs.get(1).wasHit());
+		assertTrue(targs.get(1).wasHit());
 	}
 	
 
