@@ -25,7 +25,7 @@ public class BattleField extends JPanel{
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private Quiz quiz;
-	private Missile theMissile = new Missile(0,0);
+	private Missile theMissile = new Missile(-1,-1);
 	private int theLauncher, numLevels, currentLevel;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
@@ -35,8 +35,8 @@ public class BattleField extends JPanel{
 	private int userAngle;
 	private double currentTime = 0.0;
 	Timer levelTimer;
-	private int timeInterval = 17;
-	private double milliTimeInterval = 0.017;
+	private int timeInterval = 20;
+	private double milliTimeInterval = 0.02;
 	
 	private BattleField() {}
 	
@@ -139,7 +139,6 @@ public class BattleField extends JPanel{
 		while (levelTimer.isRunning()) {
 			//System.out.println("launch not over");
 		}
-		
 	}
 	
 	private class TimerListener implements ActionListener {
