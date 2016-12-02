@@ -137,6 +137,7 @@ public class BattleField extends JPanel{
 		levelTimer = new Timer(timeInterval, new TimerListener());
 		levelTimer.setRepeats(true);
 		levelTimer.start();
+		
 		while (levelTimer.isRunning()) {
 			//System.out.println("launch not over");
 		}
@@ -144,31 +145,23 @@ public class BattleField extends JPanel{
 	
 	private class TimerListener implements ActionListener {		
 		public void actionPerformed(ActionEvent arg0) {
-			System.out.println("hi");
-			moveMissile();
+			double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
+			double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
+			theMissile.move(x, y);
+			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+			repaint();
+			if (theMissile.getYLoc() < 0 || currentTime > 10 || theMissile.getXLoc() > xDim) {
+				levelTimer.stop();
+			}
+			for (Target t : getCurrentLevel().getTargetList()) {
+				if (t.interact(theMissile)) {
+					levelTimer.stop();
+				}
+			}
+			currentTime += milliTimeInterval;
 		}
-		
 	}
 	
-	private void moveMissile() {
-		double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
-		double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
-		theMissile.move(x, y);
-		System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
-		repaint();
-		if (theMissile.getYLoc() < 0 || currentTime > 10 || theMissile.getXLoc() > xDim) {
-			levelTimer.stop();
-			return;
-		}
-		for (Target t : getCurrentLevel().getTargetList()) {
-			if (t.interact(theMissile)) {
-				levelTimer.stop();
-				return;
-			}
-		}
-		currentTime += milliTimeInterval;
-		
-	}
 	
 	public void incrementLevel() {
 		currentLevel++;
@@ -177,6 +170,7 @@ public class BattleField extends JPanel{
 			err.showMessageDialog(null, "All levels complete!");
 			currentLevel--;
 		}
+		repaint();
 	}
 	/*************************** GUI STUFF ***************************/
 	

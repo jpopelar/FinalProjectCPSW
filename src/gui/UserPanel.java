@@ -21,8 +21,10 @@ public class UserPanel extends JPanel {
 	private JComboBox<Integer> angleSelect;
 	private JButton launchButton;
 	private JButton nextLevelButton;
+	private BattleField field;
 	
 	public UserPanel() {
+		field = BattleField.getInstance();
 		setLayout(new GridLayout(0,1));
 		setBorder(new TitledBorder (new EtchedBorder(), "Angle"));
 		// Angle Selection
@@ -37,7 +39,7 @@ public class UserPanel extends JPanel {
 		add(launchButton);
 		// Launcher Selection
 		launcherSelect = new JComboBox<String>();
-		for (Launcher l : BattleField.getInstance().getLaunchers()) {
+		for (Launcher l : field.getLaunchers()) {
 			launcherSelect.addItem(l.toString());
 		}
 		add(launcherSelect);
@@ -50,22 +52,22 @@ public class UserPanel extends JPanel {
 	private class LaunchListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (launcherSelect.getSelectedItem().equals("Ballista")) {
-				BattleField.getInstance().setLauncher(0);
+				field.setLauncher(0);
 			}
 			if (launcherSelect.getSelectedItem() == "Catapult") {
-				BattleField.getInstance().setLauncher(1);
+				field.setLauncher(1);
 			}
 			if (launcherSelect.getSelectedItem() == "Trebuchet") {
-				BattleField.getInstance().setLauncher(2);
+				field.setLauncher(2);
 			}
 			
-			BattleField.getInstance().launch((int) angleSelect.getSelectedItem());
+			field.launch((int) angleSelect.getSelectedItem());
 		}	
 	}
 	
 	private class NextListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			for (Target t: BattleField.getInstance().getCurrentLevel().getTargetList()) {
+			for (Target t: field.getCurrentLevel().getTargetList()) {
 				if (!t.wasHit()) {
 					// display promt
 					JOptionPane err = new JOptionPane();
@@ -73,7 +75,8 @@ public class UserPanel extends JPanel {
 					return;
 				}
 			}
-			BattleField.getInstance().incrementLevel();
+			// TODO: call doQuiz - make sure dialong locks
+			field.incrementLevel();
 		}	
 	}
 }
