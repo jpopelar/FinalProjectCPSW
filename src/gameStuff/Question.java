@@ -24,6 +24,14 @@ public class Question {
 		return theQuestion;
 	}
 
+	public String[] getWrongResponses() {
+		return wrongResponses;
+	}
+
+	public String getQuestion() {
+		return theQuestion;
+	}
+
 	
 	
 	

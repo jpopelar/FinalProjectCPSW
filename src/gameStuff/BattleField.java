@@ -21,10 +21,12 @@ public class BattleField extends JPanel{
 	private ArrayList<Level> levelList = new ArrayList<Level>();
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
+	private Quiz quiz;
 	private Missile theMissile = new Missile(0,0);
 	private int theLauncher, numLevels, currentLevel;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
+	
 	
 	private int xDim, yDim;
 	private int userAngle;
@@ -180,6 +182,15 @@ public class BattleField extends JPanel{
 			t.draw(g);
 		}
 		
+	}
+	
+	public void doQuiz(){
+		quiz = new Quiz(questionList.get(currentLevel));
+		quiz.setVisible(true);
+		// quiz dialog pops up
+		// user selects answer
+		// loop until correct
+		// close quiz
 	}
 	
 	/*************************** SETTERS ***************************/
