@@ -11,7 +11,7 @@ public class Target extends JComponent {
 	private int xLoc, yLoc;
 	private boolean wasHit;
 	// TODO: deal with size of target
-	private int width = 5;
+	private int width = 1;
 	
 	public Target(int x, int y) {
 		xLoc = x;
@@ -44,8 +44,10 @@ public class Target extends JComponent {
 	public void draw(Graphics g) {
 		g.setColor(Color.RED);
 		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
-		int y = (BattleField.getInstance().getYDim() - yLoc) * GameWindow.SCALE_FACTOR;
-		
-		g.fillRect(x, y, 1 * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR);
+		int y = (BattleField.getInstance().getYDim() - yLoc - width) * GameWindow.SCALE_FACTOR;
+		if (wasHit){
+			g.setColor(Color.GRAY);
+		}
+		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 }

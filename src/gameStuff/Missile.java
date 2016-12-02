@@ -39,7 +39,7 @@ public class Missile extends JComponent {
 		int x = (xLoc - (radius/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - radius) * GameWindow.SCALE_FACTOR;
 		
-		g.drawOval(x, y, radius * GameWindow.SCALE_FACTOR, radius * GameWindow.SCALE_FACTOR);
+		g.fillOval(x, y, radius * GameWindow.SCALE_FACTOR, radius * GameWindow.SCALE_FACTOR);
 	}
 	
 
