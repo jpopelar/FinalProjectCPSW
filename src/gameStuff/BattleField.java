@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -35,8 +36,8 @@ public class BattleField extends JPanel{
 	private int userAngle;
 	private double currentTime = 0.0;
 	Timer levelTimer;
-	private int timeInterval = 20;
-	private double milliTimeInterval = 0.02;
+	private int timeInterval = 17;
+	private double milliTimeInterval = 0.017;
 	
 	private BattleField() {}
 	
@@ -141,38 +142,41 @@ public class BattleField extends JPanel{
 		}
 	}
 	
-	private class TimerListener implements ActionListener {
-		Missile currentMissile = theMissile;
-		Launcher currentLauncher = launcherList.get(theLauncher);
-		Level currentLevelPlayed = levelList.get(currentLevel);
-				
+	private class TimerListener implements ActionListener {		
 		public void actionPerformed(ActionEvent arg0) {
-			double x = PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
-			double y = PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
-			theMissile.move(x, y);
-			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
-			repaint();
-			if (/*theMissile.getXLoc() >= PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle, getCurrentLevel().getLauncherXLoc()) ||*/
-					theMissile.getYLoc() < 0) {
-				levelTimer.stop();
-			}
-			for (Target t : currentLevelPlayed.getTargetList()) {
-				if (t.interact(currentMissile)) {
-					//System.out.println("HIT");
-					levelTimer.stop();
-				}
-			}
-			currentTime += milliTimeInterval;
-			if (currentTime > 10 || theMissile.getXLoc() > xDim) {
-				levelTimer.stop();
-			}
-			
+			System.out.println("hi");
+			moveMissile();
 		}
+		
+	}
+	
+	private void moveMissile() {
+		double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
+		double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
+		theMissile.move(x, y);
+		System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+		repaint();
+		if (theMissile.getYLoc() < 0 || currentTime > 10 || theMissile.getXLoc() > xDim) {
+			levelTimer.stop();
+			return;
+		}
+		for (Target t : getCurrentLevel().getTargetList()) {
+			if (t.interact(theMissile)) {
+				levelTimer.stop();
+				return;
+			}
+		}
+		currentTime += milliTimeInterval;
 		
 	}
 	
 	public void incrementLevel() {
 		currentLevel++;
+		if (currentLevel >= numLevels) {
+			JOptionPane err = new JOptionPane();
+			err.showMessageDialog(null, "All levels complete!");
+			currentLevel--;
+		}
 	}
 	/*************************** GUI STUFF ***************************/
 	

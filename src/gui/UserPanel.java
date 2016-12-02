@@ -19,9 +19,8 @@ import gameStuff.Target;
 public class UserPanel extends JPanel {
 	private JComboBox<String> launcherSelect;
 	private JComboBox<Integer> angleSelect;
-	JButton launchButton;
-	JButton nextLevelButton;
-	private int selectedAngle;
+	private JButton launchButton;
+	private JButton nextLevelButton;
 	
 	public UserPanel() {
 		setLayout(new GridLayout(0,1));
@@ -59,8 +58,8 @@ public class UserPanel extends JPanel {
 			if (launcherSelect.getSelectedItem() == "Trebuchet") {
 				BattleField.getInstance().setLauncher(2);
 			}
-			selectedAngle = (int) angleSelect.getSelectedItem();
-			BattleField.getInstance().launch(selectedAngle);
+			
+			BattleField.getInstance().launch((int) angleSelect.getSelectedItem());
 		}	
 	}
 	
