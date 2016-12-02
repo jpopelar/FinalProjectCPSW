@@ -79,7 +79,8 @@ public class UserPanel extends JPanel {
 			}
 			// TODO: call doQuiz - make sure dialog locks
 			field.doQuiz();
-			field.incrementLevel();
+			// Increment level should only be called if quiz is complete
+			//field.incrementLevel();
 		}	
 	}
 }
