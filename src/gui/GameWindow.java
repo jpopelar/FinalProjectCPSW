@@ -84,6 +84,7 @@ public class GameWindow extends JFrame{
 		gui.field.launch(80);
 		gui.field.setLauncher(2);
 		gui.field.launch(30);
+		gui.field.incrementLevel();
 		
 	}
 	
