@@ -36,7 +36,7 @@ public class fileInitTests {
 	public void testBattleFieldConfig() {
 		// assertEquals board dims are same as specified in config file
 		assertEquals(100, field.getXDim());
-		assertEquals(25, field.getYDim());
+		assertEquals(50, field.getYDim());
 		assertEquals(2, field.getLevelList().size());
 	}
 	

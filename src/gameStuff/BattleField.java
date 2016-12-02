@@ -1,5 +1,6 @@
 package gameStuff;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,8 @@ import java.util.Scanner;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import gui.GameWindow;
 
 
 public class BattleField extends JPanel{
@@ -148,7 +151,7 @@ public class BattleField extends JPanel{
 			double x = PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
 			double y = PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
 			theMissile.move(x, y);
-			System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
 			repaint();
 			if (/*theMissile.getXLoc() >= PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle, getCurrentLevel().getLauncherXLoc()) ||*/
 					theMissile.getYLoc() < 0) {
@@ -176,6 +179,10 @@ public class BattleField extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.setColor(Color.GREEN);
+		g.fillRect(0, yDim * GameWindow.SCALE_FACTOR, xDim * GameWindow.SCALE_FACTOR, 100);
+		g.setColor(Color.BLACK);
+		g.fillRect(0, yDim * GameWindow.SCALE_FACTOR, xDim * GameWindow.SCALE_FACTOR, 5);
 		launcherList.get(theLauncher).draw(g);
 		theMissile.draw(g);
 		for (Target t : levelList.get(currentLevel).getTargetList()) {

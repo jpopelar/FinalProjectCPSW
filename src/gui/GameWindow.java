@@ -23,24 +23,21 @@ public class GameWindow extends JFrame{
 	
 	public GameWindow() {
 		super();
-		setTitle("Angle Launch Game");
-		setSize(800, 850);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(0, this.getHeight(), this.getWidth(), this.getHeight());
-		
 		field = BattleField.getInstance();
+		setTitle("Angle Launch Game");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		// hard code the file names and load up the battleField
 		field.setLaunchersFile("launcherConfig.txt");
 		field.setQuestionFile("questionListTest.txt");
 		field.setFieldFile("battleField.txt");
-		
 		try {
 			field.initialize();
 		} catch (BadConfigException e) {
 			System.out.println("Error loading config files, please check before continuing.");
 		}
 		
-		
+		setSize(field.getXDim() * SCALE_FACTOR, field.getYDim() * SCALE_FACTOR + 100);
 		
 		//initialize and display the menu
 		this.menuBar = new JMenuBar();

@@ -43,6 +43,9 @@ public class Target extends JComponent {
 	
 	public void draw(Graphics g) {
 		g.setColor(Color.RED);
-		g.drawRect(xLoc * GameWindow.SCALE_FACTOR, yLoc * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR);
+		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
+		int y = (BattleField.getInstance().getYDim() - yLoc) * GameWindow.SCALE_FACTOR;
+		
+		g.fillRect(x, y, 1 * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR);
 	}
 }

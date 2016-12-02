@@ -8,7 +8,7 @@ import javax.swing.JComponent;
 import gui.GameWindow;
 
 public class Launcher extends JComponent {
-	private int velocity;
+	private int velocity, width;
 	private String launcherName, imageName;
 	private static BattleField field = BattleField.getInstance();
 	
@@ -16,6 +16,7 @@ public class Launcher extends JComponent {
 		this.launcherName = launcherName;
 		this.velocity = velocity;
 		this.imageName = imageName;
+		width = 3;
 	}
 	
 	public int getVelocity(){
@@ -27,8 +28,11 @@ public class Launcher extends JComponent {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.GREEN);
-		g.drawRect(field.getCurrentLevel().getLauncherXLoc() * GameWindow.SCALE_FACTOR, field.getCurrentLevel().getLauncherYLoc() * GameWindow.SCALE_FACTOR, 2 * GameWindow.SCALE_FACTOR, 2 * GameWindow.SCALE_FACTOR);
+		g.setColor(Color.ORANGE);
+		int x = (field.getCurrentLevel().getLauncherXLoc() - (width/2)) * GameWindow.SCALE_FACTOR;
+		int y = (BattleField.getInstance().getYDim() - field.getCurrentLevel().getLauncherYLoc() - width) * GameWindow.SCALE_FACTOR;
+		
+		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 
 }

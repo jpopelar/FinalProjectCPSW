@@ -8,11 +8,12 @@ import javax.swing.JComponent;
 import gui.GameWindow;
 
 public class Missile extends JComponent {
-	private int xLoc, yLoc; // locations
+	private int xLoc, yLoc, radius; // locations
 	
 	public Missile(int startx, int starty){
 		xLoc = startx;
 		yLoc = starty;
+		radius = 1;
 	}
 	
 	public int getXLoc() {
@@ -35,7 +36,10 @@ public class Missile extends JComponent {
 	
 	public void draw(Graphics g) {
 		g.setColor(Color.GREEN);
-		g.drawOval(xLoc * GameWindow.SCALE_FACTOR, yLoc * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR, 1 * GameWindow.SCALE_FACTOR);
+		int x = (xLoc - (radius/2)) * GameWindow.SCALE_FACTOR;
+		int y = (BattleField.getInstance().getYDim() - yLoc - radius) * GameWindow.SCALE_FACTOR;
+		
+		g.drawOval(x, y, radius * GameWindow.SCALE_FACTOR, radius * GameWindow.SCALE_FACTOR);
 	}
 	
 
