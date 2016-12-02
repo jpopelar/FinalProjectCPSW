@@ -11,7 +11,7 @@ public class Target extends JComponent {
 	private int xLoc, yLoc;
 	private boolean wasHit;
 	// TODO: deal with size of target
-	private int width = 5;
+	private int width = 2;
 	
 	public Target(int x, int y) {
 		xLoc = x;
