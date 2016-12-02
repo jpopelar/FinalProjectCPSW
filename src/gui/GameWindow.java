@@ -39,7 +39,7 @@ public class GameWindow extends JFrame{
 		} catch (BadConfigException e) {
 			System.out.println("Error loading config files, please check before continuing.");
 		}
-		setSize(field.getXDim() * SCALE_FACTOR, field.getYDim() * SCALE_FACTOR + 100);
+		setSize(field.getXDim() * SCALE_FACTOR + 120, field.getYDim() * SCALE_FACTOR + 80);
 		
 		//initialize and display the menu
 		this.menuBar = new JMenuBar();
