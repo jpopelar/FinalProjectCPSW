@@ -2,6 +2,7 @@ package gameStuff;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,7 +16,7 @@ import javax.swing.JLabel;
 import gui.GameWindow;
 
 public class Launcher extends JComponent {
-	private int velocity, width;
+	private int velocity, width, imageHeight, imageWidth;
 	private String launcherName, imageName;
 	private static BattleField field = BattleField.getInstance();
 	
@@ -23,7 +24,9 @@ public class Launcher extends JComponent {
 		this.launcherName = launcherName;
 		this.velocity = velocity;
 		this.imageName = imageName;
-		width = 3;
+		imageHeight = 50;
+		imageWidth = 65;
+		width = 5;
 	}
 	
 	public int getVelocity(){
@@ -39,11 +42,11 @@ public class Launcher extends JComponent {
 		int y = (BattleField.getInstance().getYDim() - field.getCurrentLevel().getLauncherYLoc() - width) * GameWindow.SCALE_FACTOR;
 		BufferedImage image = null;
 		try {
-			image = ImageIO.read(new File("catapult.png"));
+			image = ImageIO.read(new File(imageName));
 		} catch (IOException e) {
-			System.out.println("not working");
 		}
-		g.drawImage(image, x, y, null);
+		Image tempImg = image.getScaledInstance(imageWidth, imageHeight, Image.SCALE_DEFAULT);
+		g.drawImage(tempImg, x, y, null);
 	}
 
 	public String toString() {
