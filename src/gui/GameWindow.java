@@ -77,12 +77,12 @@ public class GameWindow extends JFrame{
 		gui.field.launch(90);
 		gui.field.launch(10);
 		gui.field.doQuiz();
-		gui.field.launch(45);
+		/*gui.field.launch(45);
 		gui.field.setLauncher(0);
 		gui.field.launch(80);
 		gui.field.setLauncher(2);
 		gui.field.launch(30);
-		gui.field.incrementLevel();
+		gui.field.incrementLevel();*/
 		
 	}
 	
