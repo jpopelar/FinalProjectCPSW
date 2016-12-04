@@ -2,8 +2,15 @@ package gameStuff;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 import gui.GameWindow;
 
@@ -28,11 +35,15 @@ public class Launcher extends JComponent {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.ORANGE);
 		int x = (field.getCurrentLevel().getLauncherXLoc() - (width/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - field.getCurrentLevel().getLauncherYLoc() - width) * GameWindow.SCALE_FACTOR;
-		
-		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(new File("catapult.png"));
+		} catch (IOException e) {
+			System.out.println("not working");
+		}
+		g.drawImage(image, x, y, null);
 	}
 
 	public String toString() {
