@@ -16,7 +16,7 @@ import gameStuff.*;
 
 
 public class GameWindow extends JFrame{
-	private static BattleField field;
+	private BattleField field;
 	private JMenuItem exitOpt;
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -76,9 +76,7 @@ public class GameWindow extends JFrame{
 		
 		gui.field.launch(90);
 		gui.field.launch(10);
-		//gui.field.doQuiz();
-		
-		gui.field.incrementLevel();
+		gui.field.doQuiz();
 		gui.field.launch(45);
 		gui.field.setLauncher(0);
 		gui.field.launch(80);

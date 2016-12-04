@@ -26,6 +26,7 @@ public class Quiz extends JDialog{
 		this.q = q;
 		this.options = createOptions();
 		this.enterSelection = createEnterButton();	
+		setLayout(new GridLayout(0,1));
 		add(options);
 		add(enterSelection);
 		setModal(true);
@@ -55,7 +56,7 @@ public class Quiz extends JDialog{
 		
 		//Place all 4 potential answers in an array list
 		Random rand = new Random();
-		ArrayList<String> ans = new ArrayList<>();	
+		ArrayList<String> ans = new ArrayList<String>();	
 		for(String s : q.getWrongResponses()) ans.add(s);
 		ans.add(rand.nextInt(2), q.getAnswer());
 		
@@ -76,7 +77,7 @@ public class Quiz extends JDialog{
 		  public void actionPerformed(ActionEvent e){
 		   for(JRadioButton b : choices){
 			   if(b.isSelected()) 
-				   userSelection = b.toString();
+				   userSelection = b.getText();
 		   }
 		  }
 	}

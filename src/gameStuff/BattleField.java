@@ -166,8 +166,7 @@ public class BattleField extends JPanel{
 	public void incrementLevel() {
 		currentLevel++;
 		if (currentLevel >= numLevels) {
-			JOptionPane err = new JOptionPane();
-			err.showMessageDialog(null, "All levels complete!");
+			JOptionPane.showMessageDialog(null, "All levels complete!");
 			currentLevel--;
 		}
 		repaint();
