@@ -1,5 +1,5 @@
 Name of Level
-# of Targets, # of background/sceneray rectangles
+# of Targets, # of background/scenery rectangles
 x, y locations of one and only launcher
 x, y locations of targets
 . 
