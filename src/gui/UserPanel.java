@@ -56,14 +56,14 @@ public class UserPanel extends JPanel {
 			if (launcherSelect.getSelectedItem().equals("Ballista")) {
 				field.setLauncher(0);
 			}
-			if (launcherSelect.getSelectedItem() == "Catapult") {
+			if (launcherSelect.getSelectedItem().equals("Catapult")) {
 				field.setLauncher(1);
 			}
-			if (launcherSelect.getSelectedItem() == "Trebuchet") {
+			if (launcherSelect.getSelectedItem().equals("Trebuchet")) {
 				field.setLauncher(2);
 			}
-			
-			field.launch((int) angleSelect.getSelectedItem());
+			int theAngle = (Integer) angleSelect.getSelectedItem();
+			field.launch(theAngle);
 		}	
 	}
 	
@@ -78,7 +78,7 @@ public class UserPanel extends JPanel {
 				}
 			}
 			// TODO: call doQuiz - make sure dialog locks
-			field.doQuiz();
+			//field.doQuiz();
 			// Increment level should only be called if quiz is complete
 			//field.incrementLevel();
 		}	
