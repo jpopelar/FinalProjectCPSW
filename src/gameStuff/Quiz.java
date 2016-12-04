@@ -36,7 +36,6 @@ public class Quiz extends JDialog{
 		JButton button = new JButton("OK");
 		button.addActionListener(new ButtonListener());
 		buttonPanel.add(button);
-		
 		return buttonPanel;
 	}
 
