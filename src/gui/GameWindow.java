@@ -87,10 +87,6 @@ public class GameWindow extends JFrame{
 		gui.field.incrementLevel();
 		*/
 
-<<<<<<< HEAD
-=======
-		
->>>>>>> d66b0275adefedc2e77a292d1f6dcfb5ce6bcc88
 	}
 	
 }
