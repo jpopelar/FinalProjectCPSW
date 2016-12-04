@@ -33,7 +33,7 @@ public class Quiz extends JDialog{
 		setLocationRelativeTo(null);
 		setTitle("Quiz Time!");
 		setSize(400,200);
-		setVisible(true);
+		//setVisible(true);
 	}
 
 	private JPanel createEnterButton() {
@@ -41,7 +41,6 @@ public class Quiz extends JDialog{
 		JButton button = new JButton("OK");
 		button.addActionListener(new ButtonListener());
 		buttonPanel.add(button);
-		
 		return buttonPanel;
 	}
 
