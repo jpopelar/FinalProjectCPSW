@@ -138,10 +138,6 @@ public class BattleField extends JPanel{
 		levelTimer.setRepeats(true);
 		levelTimer.start();
 		
-		while (levelTimer.isRunning()) {
-			//System.out.println("launch not over");
-		}
-		
 	}
 	
 	private class TimerListener implements ActionListener {		
@@ -149,10 +145,9 @@ public class BattleField extends JPanel{
 			double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
 			double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
 			theMissile.move(x, y);
-			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
 			repaint();
 			//If the projectile hits the ground, is in the air for too long or goes out of play, stop the timer
-			if (theMissile.getYLoc() < 0 || currentTime > 10 || theMissile.getXLoc() > xDim) {
+			if (theMissile.getYLoc() < 0 || theMissile.getXLoc() > xDim) {
 				levelTimer.stop();
 			}
 			for (Target t : getCurrentLevel().getTargetList()) {

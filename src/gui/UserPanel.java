@@ -22,7 +22,7 @@ public class UserPanel extends JPanel {
 	private JComboBox<String> launcherSelect;
 	private JComboBox<Integer> angleSelect;
 	private JButton launchButton;
-	private JButton nextLevelButton;
+	//private JButton nextLevelButton;
 	private BattleField field;
 	
 	public UserPanel() {
@@ -46,9 +46,9 @@ public class UserPanel extends JPanel {
 		}
 		add(launcherSelect);
 		// Next Level Button
-		nextLevelButton = new JButton("Next Level");
-		nextLevelButton.addActionListener(new NextListener());
-		add(nextLevelButton);
+		//nextLevelButton = new JButton("Next Level");
+		//nextLevelButton.addActionListener(new NextListener());
+		//add(nextLevelButton);
 	}
 	
 	private class LaunchListener implements ActionListener {
@@ -63,11 +63,12 @@ public class UserPanel extends JPanel {
 				field.setLauncher(2);
 			}
 			int theAngle = (Integer) angleSelect.getSelectedItem();
+			System.out.println(theAngle);
 			field.launch(theAngle);
 		}	
 	}
 	
-	private class NextListener implements ActionListener {
+	/*private class NextListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			for (Target t: field.getCurrentLevel().getTargetList()) {
 				if (!t.wasHit()) {
@@ -82,5 +83,5 @@ public class UserPanel extends JPanel {
 			// Increment level should only be called if quiz is complete
 			//field.incrementLevel();
 		}	
-	}
+	}*/
 }

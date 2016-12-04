@@ -74,8 +74,9 @@ public class GameWindow extends JFrame{
 	public static void main (String[] args) {
 		GameWindow gui = new GameWindow();
 		
+		
+		//gui.field.launch(90);
 		/*
-		gui.field.launch(90);
 		gui.field.launch(10);
 		gui.field.doQuiz();
 		/*gui.field.launch(45);
@@ -86,6 +87,10 @@ public class GameWindow extends JFrame{
 		gui.field.incrementLevel();
 		*/
 
+<<<<<<< HEAD
+=======
+		
+>>>>>>> d66b0275adefedc2e77a292d1f6dcfb5ce6bcc88
 	}
 	
 }
