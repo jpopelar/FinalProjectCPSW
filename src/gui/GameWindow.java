@@ -73,7 +73,8 @@ public class GameWindow extends JFrame{
 	
 	public static void main (String[] args) {
 		GameWindow gui = new GameWindow();
-		
+		gui.field.incrementLevel();
+		gui.field.incrementLevel();
 		
 		//gui.field.launch(90);
 		/*
