@@ -1,31 +1,22 @@
 package gameStuff;
 
-import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.Graphics;
 
-public class Launcher {
-	private int xLoc, yLoc;
-	private int velocity;
+import javax.swing.JComponent;
+
+import gui.GameWindow;
+
+public class Launcher extends JComponent {
+	private int velocity, width;
 	private String launcherName, imageName;
+	private static BattleField field = BattleField.getInstance();
 	
 	public Launcher(String launcherName, int velocity, String imageName) {
 		this.launcherName = launcherName;
 		this.velocity = velocity;
 		this.imageName = imageName;
-		// default location
-		this.xLoc = 5;
-		this.yLoc = 0;
-	}
-	
-	
-	
-	/******************** GET/SET **************************/
-	
-	public int getXLoc() {
-		return xLoc;
-	}
-	
-	public int getYLoc() {
-		return yLoc;
+		width = 3;
 	}
 	
 	public int getVelocity(){
@@ -35,13 +26,16 @@ public class Launcher {
 	public String getName(){
 		return this.launcherName;
 	}
-
-	public void setxLoc(int xLoc) {
-		this.xLoc = xLoc;
+	
+	public void draw(Graphics g) {
+		g.setColor(Color.ORANGE);
+		int x = (field.getCurrentLevel().getLauncherXLoc() - (width/2)) * GameWindow.SCALE_FACTOR;
+		int y = (BattleField.getInstance().getYDim() - field.getCurrentLevel().getLauncherYLoc() - width) * GameWindow.SCALE_FACTOR;
+		
+		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 
-	public void setyLoc(int yLoc) {
-		this.yLoc = yLoc;
+	public String toString() {
+		return launcherName;
 	}
-
 }

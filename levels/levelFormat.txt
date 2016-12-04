@@ -1,9 +1,14 @@
 Name of Level
-# of Targets
+# of Targets, # of background/sceneray rectangles
 x, y locations of one and only launcher
 x, y locations of targets
 . 
 .  rest of target locations
 .
+x, y, width, height, COLOR of background rectangles - all will be green/grass for now
+.  first one is the main ground level
+.  rest of sceneray rectangles
+.
 
 
+0, 50, 100, 5

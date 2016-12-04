@@ -36,8 +36,8 @@ public class fileInitTests {
 	public void testBattleFieldConfig() {
 		// assertEquals board dims are same as specified in config file
 		assertEquals(100, field.getXDim());
-		assertEquals(25, field.getYDim());
-		assertEquals(2, field.getLevelList().size());
+		assertEquals(50, field.getYDim());
+		assertEquals(3, field.getLevelList().size());
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class fileInitTests {
 		assertEquals(10, tmpTargs.get(0).getXLoc());
 		assertEquals(15, tmpTargs.get(0).getYLoc());
 		// Test second target
-		assertEquals(25, tmpTargs.get(1).getXLoc());
+		assertEquals(20, tmpTargs.get(1).getXLoc());
 		assertEquals(0, tmpTargs.get(1).getYLoc());
 	}
 	
@@ -96,8 +96,8 @@ public class fileInitTests {
 		// Make sure there are only 3 launchers
 		assertEquals(tmpLauncherList.size(), 3);
 		// Test each launchers given throwing velocity as specified in config file
-		assertEquals(tmpLauncherList.get(0).getVelocity(), 5);
-		assertEquals(tmpLauncherList.get(1).getVelocity(), 3);
+		assertEquals(tmpLauncherList.get(0).getVelocity(), 25);
+		assertEquals(tmpLauncherList.get(1).getVelocity(), 38);
 		assertEquals(tmpLauncherList.get(2).getVelocity(), 10);
 		// Test the names of the launchers
 		assertEquals(tmpLauncherList.get(0).getName(), "Ballista");

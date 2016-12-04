@@ -2,10 +2,10 @@ solutions.txt
 
 Level 1 Solutions:
 launcher at (5,0)
-to hit target at (20, 0) launch with velocity of 38.6 at 10 degrees
+to hit target at (20, 0) launch with velocity of 25 at 10 degrees
 
 Level 2 Solutions:
 launcher at (8,3)
 to hit target at (10, 15) launch with velocity of 25 at 80 degrees
-to hit target at (25, 0) launch with velocity of 38.6 at 20 degrees
+to hit target at (20, 0) launch with velocity of 10 at 30 degrees
 

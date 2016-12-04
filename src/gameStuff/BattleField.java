@@ -1,5 +1,7 @@
 package gameStuff;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -9,10 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import gui.GameWindow;
 
-public class BattleField {
+
+public class BattleField extends JPanel{
 	
 	private static BattleField theInstance = new BattleField();
 	
@@ -20,7 +26,7 @@ public class BattleField {
 	private ArrayList<Question> questionList = new ArrayList<Question>();
 	private ArrayList<Launcher> launcherList = new ArrayList<Launcher>();
 	private Quiz quiz;
-	private Missile theMissile = new Missile(0,0);
+	private Missile theMissile = new Missile(-1,-1);
 	private int theLauncher, numLevels, currentLevel;
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
@@ -28,9 +34,10 @@ public class BattleField {
 	
 	private int xDim, yDim;
 	private int userAngle;
-	private int currentTime = 0;
-	
-	private boolean launchOver = false;
+	private double currentTime = 0.0;
+	Timer levelTimer;
+	private int timeInterval = 17;
+	private double milliTimeInterval = 0.017;
 	
 	private BattleField() {}
 	
@@ -118,38 +125,67 @@ public class BattleField {
 	
 	/*************************** GAMEPLAY ***************************/
 	
-	private class TimerListener implements ActionListener {
-		Missile currentMissile = theMissile;
-		Launcher currentLauncher = launcherList.get(theLauncher);
-		Level currentLevelPlayed = levelList.get(currentLevel);
-		ArrayList<Target> currentTargets = currentLevelPlayed.getTargetList();		
+	public void launch(int angle) {
+		// Loop check condition so function will idle until we need to reset
+		// Set time counter to 0
+		currentTime = 0.0;
+		// Set userAngle so it can be accesed by timer to perform calculations
+		userAngle = angle;
+		// Move missile to the location of the launcher - resests for each launch
+		theMissile.move(getCurrentLevel().getLauncherXLoc(), getCurrentLevel().getLauncherYLoc());
+		// Wait to end this method until missile is finished moving and continually performLaunch
+		levelTimer = new Timer(timeInterval, new TimerListener());
+		levelTimer.setRepeats(true);
+		levelTimer.start();
+		
+		while (levelTimer.isRunning()) {
+			//System.out.println("launch not over");
+		}
+	}
+	
+	private class TimerListener implements ActionListener {		
 		public void actionPerformed(ActionEvent arg0) {
-			currentMissile.move(PhysicsEngine.findXPos(currentLauncher.getVelocity(), userAngle, currentTime), PhysicsEngine.findYPos(currentLauncher.getVelocity(), userAngle, currentTime));
-			if (currentMissile.getXLoc() == PhysicsEngine.findXEnd(currentLauncher.getVelocity(), userAngle)) {
-				launchOver = true;
+			double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
+			double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
+			theMissile.move(x, y);
+			//System.out.println("Missile Location: (" + theMissile.getXLoc() + ", " + theMissile.getYLoc() +")");
+			repaint();
+			if (theMissile.getYLoc() < 0 || currentTime > 10 || theMissile.getXLoc() > xDim) {
+				levelTimer.stop();
 			}
-			for (Target t : currentTargets) {
-				t.interact(currentMissile);
-				if (t.wasHit()) {
-					launchOver = true;
+			for (Target t : getCurrentLevel().getTargetList()) {
+				if (t.interact(theMissile)) {
+					levelTimer.stop();
 				}
 			}
+			currentTime += milliTimeInterval;
 		}
-		
 	}
 	
-	public void launch(double angle) {
-		launchOver = false;	//Loop check condition so function will idle until we need to reset
-		theMissile.move(launcherList.get(theLauncher).getXLoc(), launcherList.get(theLauncher).getYLoc());	//Resets the missile's location
-		Timer levelTimer = new Timer(17, new TimerListener());
-		levelTimer.start();
-		while (!launchOver) {
-		}
-	
-	}
 	
 	public void incrementLevel() {
 		currentLevel++;
+		if (currentLevel >= numLevels) {
+			JOptionPane.showMessageDialog(null, "All levels complete!");
+			currentLevel--;
+		}
+		repaint();
+	}
+	/*************************** GUI STUFF ***************************/
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(new Color(31, 190, 214, 155));
+		g.fillRect(0, 0, xDim * GameWindow.SCALE_FACTOR, yDim * GameWindow.SCALE_FACTOR);
+		g.setColor(Color.YELLOW);
+		g.fillOval((xDim - xDim/4) * GameWindow.SCALE_FACTOR, 5 * GameWindow.SCALE_FACTOR, 100, 100);
+		getCurrentLevel().draw(g);
+		launcherList.get(theLauncher).draw(g);
+		theMissile.draw(g);
+		for (Target t : levelList.get(currentLevel).getTargetList()) {
+			t.draw(g);
+		}
+		
 	}
 	
 	public void doQuiz(){

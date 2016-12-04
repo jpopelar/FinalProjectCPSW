@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EtchedBorder;
@@ -19,16 +20,20 @@ public class Quiz extends JDialog{
 	private JPanel options, enterSelection;
 	private ArrayList<JRadioButton> choices;
 	private String userSelection;
+	private BattleField field = BattleField.getInstance();
 	
 	public Quiz(Question q){
 		this.q = q;
 		this.options = createOptions();
 		this.enterSelection = createEnterButton();	
+		setLayout(new GridLayout(0,1));
 		add(options);
 		add(enterSelection);
 		setModal(true);
 		setLocationRelativeTo(null);
-		
+		setTitle("Quiz Time!");
+		setSize(400,200);
+		setVisible(true);
 	}
 
 	private JPanel createEnterButton() {
@@ -40,9 +45,9 @@ public class Quiz extends JDialog{
 	}
 
 	private JPanel createOptions() {
-		// Initialize panel
+		choices = new ArrayList<JRadioButton>();
 		JPanel optionPanel = new JPanel();
-		setLayout(new GridLayout(0,1));
+		optionPanel.setLayout(new GridLayout(0,1));
 		optionPanel.setBorder(new TitledBorder(new EtchedBorder(), q.getQuestion()));
 		
 		//Create button group
@@ -50,7 +55,7 @@ public class Quiz extends JDialog{
 		
 		//Place all 4 potential answers in an array list
 		Random rand = new Random();
-		ArrayList<String> ans = new ArrayList<>();	
+		ArrayList<String> ans = new ArrayList<String>();	
 		for(String s : q.getWrongResponses()) ans.add(s);
 		ans.add(rand.nextInt(2), q.getAnswer());
 		
@@ -60,11 +65,10 @@ public class Quiz extends JDialog{
 		for(String s : ans){
 			JRadioButton tmp = new JRadioButton(s);
 			optionPanel.add(tmp);
-			group.add(tmp);
 			tmp.addActionListener(listener);
+			group.add(tmp);			
 			choices.add(tmp);
 		}
-		
 		return optionPanel;
 	}
 	
@@ -72,7 +76,7 @@ public class Quiz extends JDialog{
 		  public void actionPerformed(ActionEvent e){
 		   for(JRadioButton b : choices){
 			   if(b.isSelected()) 
-				   userSelection = b.toString();
+				   userSelection = b.getText();
 		   }
 		  }
 	}
@@ -80,11 +84,13 @@ public class Quiz extends JDialog{
 	private class ButtonListener implements ActionListener {
 		  public void actionPerformed(ActionEvent e){
 		   if(userSelection.equals(q.getAnswer())){
-			   // diplay victory splash
+			   JOptionPane.showMessageDialog(null, "That answer is correct! Press OK to advance to the next level.");
 			   dispose();
+			   field.incrementLevel();
 		   }
 		   else {
 			   //splash wrong!
+			   JOptionPane.showMessageDialog(null, "That's not the right answer. Try again!");
 			   //loop back to quiz
 		   }
 			   
