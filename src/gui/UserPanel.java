@@ -63,6 +63,7 @@ public class UserPanel extends JPanel {
 				field.setLauncher(2);
 			}
 			int theAngle = (Integer) angleSelect.getSelectedItem();
+			System.out.println(theAngle);
 			field.launch(theAngle);
 		}	
 	}
