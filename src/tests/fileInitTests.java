@@ -66,7 +66,7 @@ public class fileInitTests {
 		assertEquals(10, tmpTargs.get(0).getXLoc());
 		assertEquals(15, tmpTargs.get(0).getYLoc());
 		// Test second target
-		assertEquals(20, tmpTargs.get(1).getXLoc());
+		assertEquals(25, tmpTargs.get(1).getXLoc());
 		assertEquals(0, tmpTargs.get(1).getYLoc());
 	}
 	
@@ -96,9 +96,9 @@ public class fileInitTests {
 		// Make sure there are only 3 launchers
 		assertEquals(tmpLauncherList.size(), 3);
 		// Test each launchers given throwing velocity as specified in config file
-		assertEquals(tmpLauncherList.get(0).getVelocity(), 25);
-		assertEquals(tmpLauncherList.get(1).getVelocity(), 38);
-		assertEquals(tmpLauncherList.get(2).getVelocity(), 10);
+		assertEquals(tmpLauncherList.get(0).getVelocity(), 31);
+		assertEquals(tmpLauncherList.get(1).getVelocity(), 39);
+		assertEquals(tmpLauncherList.get(2).getVelocity(), 22);
 		// Test the names of the launchers
 		assertEquals(tmpLauncherList.get(0).getName(), "Ballista");
 		assertEquals(tmpLauncherList.get(1).getName(), "Catapult");

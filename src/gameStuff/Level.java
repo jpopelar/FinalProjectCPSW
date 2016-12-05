@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -33,6 +34,7 @@ public class Level extends JComponent {
 		String fileName = "levels/level" + num + ".txt";
 		String del = ", "; // NOTE: Delimiter is ", "
 		try {
+			InputStream rdr = getClass().getResourceAsStream(fileName);
 			FileReader openFile = new FileReader(fileName);
 			Scanner tmpScanner = new Scanner(openFile);
 			String[] locs = new String[5];
