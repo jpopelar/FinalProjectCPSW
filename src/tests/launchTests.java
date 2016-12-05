@@ -65,7 +65,7 @@ public class launchTests {
 		// set launcher to have velocity of 25
 		field.setLauncher(0);
 		field.launch(10); // launch at angle that will hit specific target in level 1
-		//assertTrue(targs.get(0).wasHit());
+		assertTrue(targs.get(0).wasHit());
 		
 		// Now do level 2 targets
 		field.incrementLevel();
