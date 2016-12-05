@@ -1,11 +1,8 @@
 package gameStuff;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -19,13 +16,15 @@ public class Target extends JComponent {
 	private boolean wasHit;
 	// TODO: deal with size of target
 	private int width = 2;
-	private String fileName = "/images/target.png";
+	private String unhitFileName = "/images/target.png";
 	private String hitFileName = "/images/hitTarget.png";
+	private Image unhit, hit;
 	
 	public Target(int x, int y) {
 		xLoc = x;
 		yLoc = y;
 		wasHit = false;
+		loadImages();
 	}
 	
 	public int getXLoc() {
@@ -51,37 +50,36 @@ public class Target extends JComponent {
 		return wasHit;
 	}
 	
+	private void loadImages() {
+		BufferedImage buffImageUnhit = null;
+		BufferedImage buffImageHit = null;
+		URL unhitURL = getClass().getResource(unhitFileName);
+		URL hitURL = getClass().getResource(hitFileName);
+		
+		
+		try {
+			buffImageHit = ImageIO.read(hitURL);
+			buffImageUnhit = ImageIO.read(unhitURL);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		hit = buffImageHit.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
+		unhit = buffImageUnhit.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
+		
+	}
+	
 	public void draw(Graphics g) {
 		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - width) * GameWindow.SCALE_FACTOR;
 		
-		
-		if (wasHit) {
-			URL url = getClass().getResource(hitFileName);
-			Image tempImg =  Toolkit.getDefaultToolkit().getImage(url).getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
-			g.drawImage(tempImg, x, y, null);
-			return;
-		}
-		URL url = getClass().getResource(fileName);
-		Image tempImg =  Toolkit.getDefaultToolkit().getImage(url).getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
-		g.drawImage(tempImg, x, y, null);
-		/*
-		
-		BufferedImage image = null;
-		try {
-			image = ImageIO.read(new File(fileName));
-		} catch (IOException e) {
-		}
-		Image tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
-		g.drawImage(tempImg, x, y, null);
 		if (wasHit){
-			try {
-				image = ImageIO.read(new File(hitFileName));
-			} catch (IOException e) {
-			}
-			tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
-			g.drawImage(tempImg, x, y, null);
+			g.drawImage(hit, x, y, null);
 		}
-		*/
+		else {
+			g.drawImage(unhit, x, y, null);
+		}
+		
 	}
 }
