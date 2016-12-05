@@ -1,0 +1,556 @@
+commit 76de6e6517fbe38f1b7dee11d3eb78941133144e
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Thu Dec 1 21:38:57 2016 -0700
+
+    Added a userPanel class that extends JPanel. Contains the angle jtextfield and the combo box so the user can select angle and launcher. Also contains a launch button. The listener for the button calls all the appropriate launch logic and launcher select. However, currently, pressing the button causes the game to freeze. Have commented out the add buttonlistener code so that it will not do anything. To debug later.
+
+commit b03efb67d1b88269de75cd23bcccdee2904c8538
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 21:31:36 2016 -0700
+
+    fixed the target display. if target is hit it turns gray. missile is now a filled in circle
+
+commit 31a6000416bc8284750cb9bde6ba032442a0a0f8
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 20:03:36 2016 -0700
+
+    working on graphics display and change random stuff
+
+commit 4284a91d0083c30a62c5ff7eb6894f873211aa3c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 19:06:24 2016 -0700
+
+    working on fixing last launch bug
+
+commit 53c0c664f216e9b81ecf1fc0feff7c80b9265128
+Merge: 55d9fa9 7303988
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 18:39:28 2016 -0700
+
+    mege conflicts resolved
+
+commit 55d9fa95d5d0a38ee5e991fe408fa06fd35adc72
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 18:37:02 2016 -0700
+
+    playing with getting the launch method implemented and I also added the paint component method - fully implemented
+
+commit 69b4ee672ce5af77b08c0459745866ab6bba3c3d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 18:35:17 2016 -0700
+
+    playing with physics calcs
+
+commit 352b8c7ab87de371cfe422cd655b6968457864df
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 18:34:49 2016 -0700
+
+    fixed test launch method to expect correct stuff
+
+commit 9f830363c22b71477d5e59b072624dbe8e5d97d1
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 17:29:51 2016 -0700
+
+    changed location of second target in level two
+
+commit 7b20db047b35b49182486146de42663f50ac72a8
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 17:25:18 2016 -0700
+
+    implemented draw methods
+
+commit 42a954bcafead7e00b44da0826e16755856afc1f
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 17:24:23 2016 -0700
+
+    updated solutions
+
+commit e7c4c4d4f424fcd5758ceb88ef706657b159c077
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 17:23:57 2016 -0700
+
+    added the slow trebuchet to calculations
+
+commit 5582300f63c3314eb36730b7970ce3ecbedacac0
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 17:06:34 2016 -0700
+
+    removed location info from launcher class. Level class handles the launcher location
+
+commit 40a6cba6d910764906416736759646ce240f5783
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 16:20:53 2016 -0700
+
+    eddited the solutions for the levels to be correct
+
+commit 581ef0ef72c70a1d11015baedd38f832f678d8bf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 16:20:12 2016 -0700
+
+    added another angle to evaluate
+
+commit 6ec1feb8d1df0513296cf0610507205dc1975977
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 16:19:41 2016 -0700
+
+    fixed function call for phy engine to account for the starting location
+
+commit b3034bed7fd243a380173fe0dd7ec489e09c063b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 16:18:37 2016 -0700
+
+    gave physics engine ability to calculate physics from correct starting locations
+
+commit 7303988285e944c2f34997e42debd7e4f2a8f66e
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 16:10:34 2016 -0700
+
+    Updated quiz one more time
+
+commit 82dbb1ce54966e52d270c16dba52e8a2028986d7
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 16:06:30 2016 -0700
+
+    Button and listener to check quiz answer
+
+commit 1a5d98327637bbb859d3579d28a74ae55e4e10e7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 14:28:47 2016 -0700
+
+    changed the velocities of the launchers
+
+commit a2b835184df71f5a7528a361be17e74b789dec03
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 14:23:22 2016 -0700
+
+    refactored a bit of the launch and timer stuff and added a sys out for debugging... position of the missile is not getting updated correctly which is causing infinite loop.
+
+commit adf5c300704970d1b101bda84dd7a2c536ac1dfb
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 14:21:34 2016 -0700
+
+    made position variable for missile private so you can only use getters to access and the move function to updat position
+
+commit 98d96d00c74427c18871ac1e2e1cc13a57ed8dee
+Merge: b2e8b9d 3cd3610
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 13:42:59 2016 -0700
+
+    Merge branch 'keepThisQuiz'
+
+commit b2e8b9d90dcb26d2045bad310068bcaab1eecc5a
+Merge: 8288e14 e9c52b6
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 13:42:43 2016 -0700
+
+    merged with global
+
+commit e9c52b61833393558ab31b5131699372f207c2dd
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Thu Dec 1 12:51:31 2016 -0700
+
+    Currently working on getting launchTests to pass. Removed the missile list, battlefield now contains a single missile. Possible issue with looping/timers causing testlaunch to not run properly.
+
+commit c3daccc5b6b12e3bd8d55dc20a3fc8ba9e18df9e
+Merge: 2c0bc28 866aedd
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Thu Dec 1 12:43:25 2016 -0700
+
+    Merge branch 'tempLaunch'
+
+commit 866aedd50078b81a58a2667338f808fdadef6f00
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Thu Dec 1 12:42:39 2016 -0700
+
+    Began to add in the timer logic. The timing of the game will be contained within the timerlistener class. There will be an infinite loop running until there has been a hit or the missile reaches the ground.
+
+commit 2c0bc286be0455a82b5511d20de5bf22d6be9192
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 12:32:25 2016 -0700
+
+    Xfinal calculations are shit and don't work
+
+commit 3cd3610a4c46a32a98a2bb0baeb1da0c2ebd9b72
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 12:26:10 2016 -0700
+
+    listener finished to store user selection
+
+commit 3da17a5df50726c0fce682291efbd3bc36f90397
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 12:25:55 2016 -0700
+
+    more overhaul of spreadsheet
+
+commit 34351bc02ab2f98edfb1bc3c7760d4c9dd19ac44
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 12:21:31 2016 -0700
+
+    changed positions of targets in level files to be hittable. put correct angles in the test methods for launching. added a setMethod to set the launcher using integer indexing on the arrayList. Overhauled the physics spreadsheet
+
+commit 94ae93b48ecf2f3d9bc17259a9b1b98eec5a066c
+Author: Maxwell Watson <mawatson@adit.mines.edu>
+Date:   Thu Dec 1 11:48:24 2016 -0700
+
+    Added calculation spreadsheet.
+
+commit 124a6a837ae415a7999dfef6f7edd0251d359cb2
+Merge: 0d1715f 795cf58
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 11:08:17 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit 795cf58fdfc7a13d0ea98ae9ee08a02918bbfafd
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Thu Dec 1 11:06:09 2016 -0700
+
+    Physics functions now take degrees as arguments
+
+commit 0d1715ffb58e89c0d4e278e2520fed6063a9a5d3
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 10:55:05 2016 -0700
+
+    added a getYLoc method to Launcher class
+
+commit d71eda5a790a363534fa5729a4dafe816ffefad9
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 10:47:29 2016 -0700
+
+    adding radiolisteneners for quiz buttons
+
+commit 8288e149417491a0fc0d4a5d5d5d860de686d1f3
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Dec 1 02:15:02 2016 -0700
+
+    Quiz functionality mostly implemented
+
+commit 828f455fd0d7d9061efa69092d09c88c0dcce22b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Nov 30 19:41:30 2016 -0700
+
+    changed order for error message if level doesn't exist
+
+commit 0fbb6460e34e833b06454cad5950679e8e0691e4
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 21:08:45 2016 -0700
+
+    rearranged code
+
+commit 8c5a01e03daa583ad8c56aa452cb9aa3b566a2e7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 21:08:11 2016 -0700
+
+    implemented the test for the launch add added all appropriate function stubs and variables that will be needed. test fails - needs fucntionality to be implemented now
+
+commit 53b52970ad30c95e55d11647f2f4a36108f0c1fe
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:56:35 2016 -0700
+
+    added empty launch method in battlefield class with comments describing future action
+
+commit 5ae3f4ca549e1d0141345d61dad62944794f1b1e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:56:09 2016 -0700
+
+    removed the mass variable from the missile class as it is not needed
+
+commit 634e8a31401b92de3bdc3d5b72d5debf3473a04e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:51:14 2016 -0700
+
+    updated the interact method for the target so that wasHit gets set as true if the missile it is interacting with has a location within the range of the target as set in the target class as width
+
+commit 4e62eb7e32c71fa94b79ccca07405ab5816ea2aa
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:50:02 2016 -0700
+
+    added in the need interact function calls to update wasHit appropriately
+
+commit c69f2b500ff030945e6042c799c06933da85591e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:45:12 2016 -0700
+
+    filled out the test cases for the testInteraction stuff - makes sure missles that hit targets set the target to wasHit is true
+
+commit 36476408d02f986c7927edf0a4d06fe52c1616cb
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:37:34 2016 -0700
+
+    mad a boolean wasHit method
+
+commit 7762e94b6e9ccfdfd2442da1d54f0fe009eabcd7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:34:27 2016 -0700
+
+    starting development for tests on the launching of missiles and the interaction of targets with missiles
+
+commit c8ca35db6e507777f3a0e35077cf1dd165a74035
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:33:42 2016 -0700
+
+    made a width variable for the target as well as a boolean wasHit. Made an empty function stub for the interaction that takes a missle and will eventually update the wasHit boolean appropriately
+
+commit 952305c29612aa22ec6897af3017327dde6826e9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 20:32:18 2016 -0700
+
+    added location variable to missile object and getters for those variables. also made a move method that updates the x, y location of the missile.
+
+commit 9318ec2d4d3af64453dc37778f38fedfede4d0d1
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:45:55 2016 -0700
+
+    comments and whatnot
+
+commit e699e513e42ad95eccf5c48f3e614d80d7e1cc52
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:43:54 2016 -0700
+
+    implemented the loadBattleField method which set dims of the field and adds levels to levelList
+
+commit c5f5173dfaadac1a5d01dce099ee68419e886f09
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:43:16 2016 -0700
+
+    refactored the testDims method to be a method to test the config of the battlefield. Handles the dims of the battlefield and the number of levels. updates the testLocs to be testLevels which pulls the levels and test locations of launchers and targets from the field
+
+commit c926ed06f973cc63e4ec4857360d6a93d74ffe0a
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:42:41 2016 -0700
+
+    refactored the testDims method to be a method to test the config of the battlefield. Handles the dims of the battlefield and the number of levels. updates the testLocs to be testLevels which pulls the levels and test locations of launchers and targets from the field
+
+commit 2572387b6c8d6a9031c41f5c581e9aa5e4acefe5
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:40:16 2016 -0700
+
+    update this config file to hold the dimensions of the battlefield and the number of levels
+
+commit 2568a1467abcef13c561d2e3a76358d3edaaf6c4
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:27:56 2016 -0700
+
+    made a txt file for battleField config stuff to deal with later
+
+commit b9c3be2e1325b3843ae9d804af1d10b8cdeadb27
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:27:17 2016 -0700
+
+    implemeted functionality of the level class and how it loads from files - test passes for level loading
+
+commit 29d7f155df919826792e9a53c11f25e96ff5f5a7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:25:15 2016 -0700
+
+    updated tests to reflect what the Level loader will do
+
+commit a08276e50d6cfa1614df687621061512b823d3b6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:24:31 2016 -0700
+
+    change postiion variable to be signficantly diff from level 1
+
+commit 02ead27ac6010f6813634b85e9e6573825745191
+Merge: 56032bf af912f9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:15:13 2016 -0700
+
+    megering
+
+commit 56032bfc60c7c263ab9cc409559a09cfc78203a4
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:12:52 2016 -0700
+
+    dealing with levels and putting variables in approp places
+
+commit 57439c9bf6601f202afbf64a19cac16c2f78f43c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 13:00:21 2016 -0700
+
+    implemented the class - made proper constructor and getters that return correct values
+
+commit ed54f44ee991907d99fa1e6094d5a8c415cf17cc
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 12:59:39 2016 -0700
+
+    changed the yLoc variable to be non constant - launchers can now have any location. Removed location setter from constructor and mad a default location with seeter methods
+
+commit 2901ffa051b680421ba990cc8c79c95fe14617a5
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 12:25:24 2016 -0700
+
+    changed format of level config so each level can only have 1 launcher
+
+commit 066e0a7059d56d6722825458cb34640e68d4e92f
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 12:09:44 2016 -0700
+
+    changed name of level 2 to Level 2
+
+commit 484f69c3ca115f9881e7d7b0594341be12e55bfc
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 29 12:04:37 2016 -0700
+
+    made level files and a format file to explain how they are formatted
+
+commit af912f99cd4ad393c7c42329f9e6542d642f4917
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Tue Nov 29 11:44:50 2016 -0700
+
+    Question and Luancher tests passing again
+
+commit 12520c1f90c97547c0b99c01e0882a882dcd7d4a
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Tue Nov 29 09:56:44 2016 -0700
+
+    Streamlined code for BattleField loading
+
+commit 13c1e7119c2b825c66a4b7058d55495e92ffdab4
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Tue Nov 29 09:28:13 2016 -0700
+
+    PhysicsEngine tests are passing
+
+commit 219fa04ec1b00407c114ed1b2ad98f930f4028b6
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Thu Nov 24 01:25:10 2016 -0700
+
+    Implemented loadLaunchers, test now passes
+
+commit f0fa69731abfb63f88fa2bb9548cd4e282e09db2
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Nov 23 06:36:20 2016 -0700
+
+    refactored a few methods and variables to give more meaning. Made setters for all config file names. Added sectional comments
+
+commit 88f93f5aae92c573189005a9db375f4a27fcbaa6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Nov 23 06:25:01 2016 -0700
+
+    removed the BeforeClass Method for physic engine test - there is no need to load any files for these tests or to even access the battle field
+
+commit 80e8bfb4721ca48da0b70b08c4e68394d399e985
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Nov 23 06:23:30 2016 -0700
+
+    made theTarget a public variable
+
+commit ce558c48210182868259c22421175e8b81bcc794
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Wed Nov 23 06:21:44 2016 -0700
+
+    put some comments and code that got deleted by accident.
+
+commit 067ea4ed62b4e5d93fa85b3720d5d3413e3c79d7
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Wed Nov 23 01:17:35 2016 -0700
+
+    Project now supports loading quiz info, junit test passes
+
+commit ae0fa8b8dc3652155a89d8c6459b43a7a383b81f
+Merge: fca238b 3fa4908
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Tue Nov 22 12:33:20 2016 -0700
+
+    added BadConfigException, merged...
+
+commit 3fa49087935af487cd9dc85f94eeffec0f000203
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Tue Nov 22 12:26:33 2016 -0700
+
+    Added question load code to make question tests pass
+
+commit fca238bb54e1d3d96e71ff616338244dfaa1e930
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:47:58 2016 -0700
+
+    deleted empty test class
+
+commit c35b4ea873712c3bcc368b3427550847bd473214
+Merge: 778119e a0d59eb
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:42:43 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit 778119e6ad5edb6f51664271e000b1fd7d0c29d7
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:42:27 2016 -0700
+
+    general comments on the test classes - added literal strings to the questions test for testing answers with their questions.
+
+commit a0d59eb1e2f7ef9d1190950ae88da5f53a1101d9
+Merge: 5da7f58 a181e97
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Tue Nov 22 11:37:43 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+    Merged with Bane's branch
+
+commit 5da7f58aee02052a0d6770387aacebdea7d84362
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Tue Nov 22 11:37:27 2016 -0700
+
+    Launcher config ready for testing
+
+commit a181e970b306c8c6951028c3164978ac7299d98c
+Merge: 0a50955 126c85c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:31:48 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit 0a509557149a0d73fe57a4c76787b85caead472b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:31:44 2016 -0700
+
+    made variables for targets/launcher public and add tests of their locations which will be initialized by config files
+
+commit 126c85c9c265f851c4f114282a9b16c3e54196f3
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Tue Nov 22 11:30:25 2016 -0700
+
+    Question list posted for testing
+
+commit d96a20c0122ae20f8fca44f0c1913408fbc5a7e6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Nov 22 11:10:38 2016 -0700
+
+    added test of dimenesions of battlefield
+
+commit 9c28c7071f31ced18e69634f5eb6cfd1eb2eca17
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Mon Nov 21 19:08:02 2016 -0700
+
+    Set up tests for physics calculations
+
+commit cf9de4b86a3f02cfa7acb75f023076f83439c770
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Mon Nov 21 18:31:52 2016 -0700
+
+    Setting up
+
+commit c688236befe72bdd32525ae70b04d8cd5ed0370a
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Mon Nov 21 16:53:29 2016 -0700
+
+    added empty classes and documentation files
+
+commit 39f6e70bcdf658fde5349816cfc0a4653fdf6077
+Author: Jared Popelar <jpopelar@adit.mines.edu>
+Date:   Mon Nov 21 16:46:03 2016 -0700
+
+    intitializing repo
+
+commit 33ec4cc92d46eb21c108894e9481ee091602d91c
+Author: Jared Popelar <jpopelar@mines.edu>
+Date:   Mon Nov 21 16:39:00 2016 -0700
+
+    Delete .gitignore
+
+commit 2867b505daad915f14aab8f013e95da9d11fc00f
+Author: Jared Popelar <jpopelar@mines.edu>
+Date:   Mon Nov 21 16:32:08 2016 -0700
+
+    Initial commit

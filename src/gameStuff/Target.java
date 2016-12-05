@@ -49,7 +49,6 @@ public class Target extends JComponent {
 	}
 	
 	public void draw(Graphics g) {
-		//g.setColor(Color.RED);
 		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - width) * GameWindow.SCALE_FACTOR;
 		BufferedImage image = null;
@@ -67,6 +66,5 @@ public class Target extends JComponent {
 			tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
 			g.drawImage(tempImg, x, y, null);
 		}
-		//g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 }
