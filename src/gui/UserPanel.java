@@ -1,12 +1,8 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,7 +13,6 @@ import javax.swing.border.TitledBorder;
 
 import gameStuff.BattleField;
 import gameStuff.Launcher;
-import gameStuff.Quiz;
 import gameStuff.Target;
 
 public class UserPanel extends JPanel {
@@ -88,7 +83,7 @@ public class UserPanel extends JPanel {
 					return;
 				}
 			}
-			// TODO: call doQuiz - make sure dialog locks
+			// call doQuiz - make sure dialog locks
 			field.doQuiz();
 			// Increment level should only be called if quiz is complete
 		}	

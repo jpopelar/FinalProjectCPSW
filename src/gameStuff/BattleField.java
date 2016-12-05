@@ -1,20 +1,12 @@
 package gameStuff;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -45,8 +37,8 @@ public class BattleField extends JPanel{
 	private int userAngle;
 	private double currentTime = 0.0;
 	Timer levelTimer;
-	private int timeInterval = 17;
-	private double milliTimeInterval = 0.017;
+	private int timeInterval = 50;
+	private double milliTimeInterval = 0.050;
 	
 	private BattleField() {}
 	
@@ -189,6 +181,7 @@ public class BattleField extends JPanel{
 			currentLevel--;
 			return;
 		}
+		resetMissile();
 		repaint();
 	}
 	

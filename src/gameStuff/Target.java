@@ -38,7 +38,8 @@ public class Target extends JComponent {
 		// test if in x-range
 		// test if in y-range
 		if (Math.abs(xLoc - m.getXLoc()) <= width / 2 &&
-			Math.abs(yLoc - m.getYLoc()) <= width / 2	) {
+			Math.abs(yLoc - m.getYLoc()) <= width / 2 &&
+			!this.wasHit()) {
 			this.wasHit = true;
 			return true;
 		}
