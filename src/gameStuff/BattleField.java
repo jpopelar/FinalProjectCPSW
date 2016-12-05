@@ -45,7 +45,7 @@ public class BattleField extends JPanel{
 	}
 	
 	
-	public void initialize() throws BadConfigException {
+	public void initialize() {
 		loadLaunchers();
 		loadQuestions();
 		loadBattleField();
@@ -82,7 +82,7 @@ public class BattleField extends JPanel{
 	}
 	
 	
-	public void loadLaunchers() throws BadConfigException {
+	public void loadLaunchers() {
 		InputStream rdr = getClass().getResourceAsStream(launchersFileName);
 		Scanner tmpScanner = new Scanner(rdr);
 		while (tmpScanner.hasNextLine()) {
@@ -95,7 +95,7 @@ public class BattleField extends JPanel{
 		tmpScanner.close();	
 	}
 	
-	public void loadQuestions()throws BadConfigException {
+	public void loadQuestions() {
 		InputStream rdr = getClass().getResourceAsStream(questionFileName);
 		Scanner tempScanner = new Scanner(rdr);
 		while (tempScanner.hasNextLine()) {

@@ -29,11 +29,9 @@ public class GameWindow extends JFrame{
 		field.setLaunchersFile("/data/launcherConfig.txt");
 		field.setQuestionFile("/data/questionListTest.txt");
 		field.setFieldFile("/data/battleField.txt");
-		try {
-			field.initialize();
-		} catch (BadConfigException e) {
-			System.out.println("Error loading config files, please check before continuing.");
-		}
+		
+		field.initialize();
+		
 		setSize(field.getXDim() * SCALE_FACTOR + 120, field.getYDim() * SCALE_FACTOR + 80);
 		
 		//initialize and display the menu

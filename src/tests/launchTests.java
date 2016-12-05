@@ -21,11 +21,8 @@ public class launchTests {
 		field.setQuestionFile("/data/questionListTest.txt");
 		field.setFieldFile("/data/battleField.txt");
 		
-		try {
-			field.initialize();
-		} catch (BadConfigException e) {
-			System.out.println("Error loading config files, please check before continuing.");
-		}
+		field.initialize();
+		
 	}	
 	
 	
