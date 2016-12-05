@@ -3,9 +3,11 @@ package gameStuff;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -17,8 +19,8 @@ public class Target extends JComponent {
 	private boolean wasHit;
 	// TODO: deal with size of target
 	private int width = 2;
-	private String fileName = "target.png";
-	private String hitFileName = "hitTarget.png";
+	private String fileName = "/images/target.png";
+	private String hitFileName = "/images/hitTarget.png";
 	
 	public Target(int x, int y) {
 		xLoc = x;
@@ -52,6 +54,19 @@ public class Target extends JComponent {
 	public void draw(Graphics g) {
 		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - width) * GameWindow.SCALE_FACTOR;
+		
+		
+		if (wasHit) {
+			URL url = getClass().getResource(hitFileName);
+			Image tempImg =  Toolkit.getDefaultToolkit().getImage(url).getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
+			g.drawImage(tempImg, x, y, null);
+			return;
+		}
+		URL url = getClass().getResource(fileName);
+		Image tempImg =  Toolkit.getDefaultToolkit().getImage(url).getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, Image.SCALE_DEFAULT);
+		g.drawImage(tempImg, x, y, null);
+		/*
+		
 		BufferedImage image = null;
 		try {
 			image = ImageIO.read(new File(fileName));
@@ -67,5 +82,6 @@ public class Target extends JComponent {
 			tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
 			g.drawImage(tempImg, x, y, null);
 		}
+		*/
 	}
 }

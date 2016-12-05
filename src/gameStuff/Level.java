@@ -31,54 +31,52 @@ public class Level extends JComponent {
 	
 	private void loadLevel(int num) {
 		// NOTE: not dealing with bad config formats. These formats will be correct
-		String fileName = "levels/level" + num + ".txt";
+		String fileName = "/data/level" + num + ".txt";
 		String del = ", "; // NOTE: Delimiter is ", "
-		try {
-			InputStream rdr = getClass().getResourceAsStream(fileName);
-			FileReader openFile = new FileReader(fileName);
-			Scanner tmpScanner = new Scanner(openFile);
-			String[] locs = new String[5];
-			// Load first line String as the name of the level
-			levelName = tmpScanner.nextLine();
-			// Load up the number of targets (second line)
-			String tmp = tmpScanner.nextLine();
-			locs = tmp.split(del);
-			numTargets = Integer.parseInt(locs[0]);
-			numBkgRects = Integer.parseInt(locs[1]);
-			// Third line is the one and only launcher's location
+		InputStream rdr = getClass().getResourceAsStream(fileName);
+		Scanner tmpScanner = new Scanner(rdr);
+		String[] locs = new String[5];
+		// Load first line String as the name of the level
+		levelName = tmpScanner.nextLine();
+		// Load up the number of targets (second line)
+		String tmp = tmpScanner.nextLine();
+		locs = tmp.split(del);
+		numTargets = Integer.parseInt(locs[0]);
+		numBkgRects = Integer.parseInt(locs[1]);
+		// Third line is the one and only launcher's location
+		tmp = tmpScanner.nextLine();
+		locs = tmp.split(del);
+		launcherXLoc = Integer.parseInt(locs[0]);
+		launcherYLoc = Integer.parseInt(locs[1]);
+		
+		// All following lines are targets locations
+		// only loads specified number of targets
+		for(int i = 0; i < numTargets; i++) {
 			tmp = tmpScanner.nextLine();
 			locs = tmp.split(del);
-			launcherXLoc = Integer.parseInt(locs[0]);
-			launcherYLoc = Integer.parseInt(locs[1]);
-			
-			// All following lines are targets locations
-			// only loads specified number of targets
-			for(int i = 0; i < numTargets; i++) {
-				tmp = tmpScanner.nextLine();
-				locs = tmp.split(del);
-				int x = Integer.parseInt(locs[0]);
-				int y = Integer.parseInt(locs[1]);
-				targetList.add(new Target(x, y));
-			}
-			
-			for (int i = 0; i < numBkgRects; i++) {
-				tmp = tmpScanner.nextLine();
-				locs = tmp.split(del);
-				int x = Integer.parseInt(locs[0]);
-				int y = Integer.parseInt(locs[1]);
-				int w = Integer.parseInt(locs[2]);
-				int h = Integer.parseInt(locs[3]);
-				Color c = convertColor(locs[4]);
-				rects.add(new Rectangle(x,y,w,h));
-				rectColors.add(c);
-			}
-			
-			tmpScanner.close();
-		} catch (FileNotFoundException e) {
-			// TODO: implement prompt to user
-			System.out.println("File not found - level " + levelNum + " does not exist");	
-			levelNum = -1;
+			int x = Integer.parseInt(locs[0]);
+			int y = Integer.parseInt(locs[1]);
+			targetList.add(new Target(x, y));
 		}
+		
+		for (int i = 0; i < numBkgRects; i++) {
+			tmp = tmpScanner.nextLine();
+			locs = tmp.split(del);
+			int x = Integer.parseInt(locs[0]);
+			int y = Integer.parseInt(locs[1]);
+			int w = Integer.parseInt(locs[2]);
+			int h = Integer.parseInt(locs[3]);
+			Color c = convertColor(locs[4]);
+			rects.add(new Rectangle(x,y,w,h));
+			rectColors.add(c);
+		}
+		
+		tmpScanner.close();
+		/*
+		// TODO: implement prompt to user
+		System.out.println("File not found - level " + levelNum + " does not exist");	
+		levelNum = -1;
+		*/
 	}
 
 	public int getLauncherXLoc() {

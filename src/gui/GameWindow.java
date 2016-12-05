@@ -26,9 +26,9 @@ public class GameWindow extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// hard code the file names and load up the battleField
-		field.setLaunchersFile("launcherConfig.txt");
-		field.setQuestionFile("questionListTest.txt");
-		field.setFieldFile("battleField.txt");
+		field.setLaunchersFile("/data/launcherConfig.txt");
+		field.setQuestionFile("/data/questionListTest.txt");
+		field.setFieldFile("/data/battleField.txt");
 		try {
 			field.initialize();
 		} catch (BadConfigException e) {

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -59,24 +60,20 @@ public class BattleField extends JPanel{
 		// handles loading up the dimension of the board
 		// 	and the target / launcher locations
 		// all the different launchers will be loaded in separate function from separate file
-		try {
-			FileReader launchFile = new FileReader(battleFieldFileName);
-			Scanner tmpScanner = new Scanner(launchFile);
-			String tmp = tmpScanner.nextLine();
-			
-			String[] data = new String[2]; // constant
-			data = tmp.split(", "); // NOTE: Delimiter is ", "
-			xDim = Integer.parseInt(data[0]);
-			yDim = Integer.parseInt(data[1]);
-			
-			tmp = tmpScanner.nextLine();
-			data = tmp.split(", "); // NOTE: Delimiter is ", "
-			numLevels = Integer.parseInt(data[0]);
-			
-			tmpScanner.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("Load battlefield config error");		
-		}
+		InputStream rdr = getClass().getResourceAsStream(battleFieldFileName);
+		Scanner tmpScanner = new Scanner(rdr);
+		String tmp = tmpScanner.nextLine();
+		
+		String[] data = new String[2]; // constant
+		data = tmp.split(", "); // NOTE: Delimiter is ", "
+		xDim = Integer.parseInt(data[0]);
+		yDim = Integer.parseInt(data[1]);
+		
+		tmp = tmpScanner.nextLine();
+		data = tmp.split(", "); // NOTE: Delimiter is ", "
+		numLevels = Integer.parseInt(data[0]);
+		
+		tmpScanner.close();
 		
 		// Load up levels into an arrayList
 		for (int i = 1; i <= numLevels; i++){
@@ -86,40 +83,34 @@ public class BattleField extends JPanel{
 	
 	
 	public void loadLaunchers() throws BadConfigException {
-		try {
-			FileReader launchFile = new FileReader(launchersFileName);
-			Scanner tmpScanner = new Scanner(launchFile);
-			while (tmpScanner.hasNextLine()) {
-				String tmp = tmpScanner.nextLine();
-				String[] launcherData = new String[3]; // constant
-				launcherData = tmp.split(":"); // NOTE: Delimiter is ":"
-				Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), launcherData[2]);
-				launcherList.add(tmpLauncher);
-			}
-			tmpScanner.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("Load launcher config error");		}
+		InputStream rdr = getClass().getResourceAsStream(launchersFileName);
+		Scanner tmpScanner = new Scanner(rdr);
+		while (tmpScanner.hasNextLine()) {
+			String tmp = tmpScanner.nextLine();
+			String[] launcherData = new String[3]; // constant
+			launcherData = tmp.split(":"); // NOTE: Delimiter is ":"
+			Launcher tmpLauncher = new Launcher(launcherData[0], Integer.parseInt(launcherData[1]), launcherData[2]);
+			launcherList.add(tmpLauncher);
+		}
+		tmpScanner.close();	
 	}
 	
 	public void loadQuestions()throws BadConfigException {
-		try {
-			FileReader questionFile = new FileReader(questionFileName);
-			Scanner tempScanner = new Scanner(questionFile);
-			while (tempScanner.hasNextLine()) {
-				String tempQA = tempScanner.nextLine();
-				String[] questAns = new String[5]; // constant
-				questAns = tempQA.split(":"); // NOTE: Delimiter is ":"
-				String[] wrongA = new String[3];
-				for(int i = 0; i < 3; i++) {
-					wrongA[i] = questAns[i+2];
-				}
-				Question tmpQ = new Question(questAns[0], questAns[1], wrongA);
-				questionList.add(tmpQ);
+		InputStream rdr = getClass().getResourceAsStream(questionFileName);
+		Scanner tempScanner = new Scanner(rdr);
+		while (tempScanner.hasNextLine()) {
+			String tempQA = tempScanner.nextLine();
+			String[] questAns = new String[5]; // constant
+			questAns = tempQA.split(":"); // NOTE: Delimiter is ":"
+			String[] wrongA = new String[3];
+			for(int i = 0; i < 3; i++) {
+				wrongA[i] = questAns[i+2];
 			}
-			tempScanner.close();
+			Question tmpQ = new Question(questAns[0], questAns[1], wrongA);
+			questionList.add(tmpQ);
+		}
+		tempScanner.close();
 			
-		} catch (FileNotFoundException e) {
-			System.out.println("Load question config error");		}
 	}
 	
 	/*************************** GAMEPLAY ***************************/
