@@ -55,6 +55,11 @@ public class UserPanel extends JPanel {
 	
 	private class LaunchListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			if (field.isLaunching()) {
+				JOptionPane.showMessageDialog(null, "Wait until current launch is finished");
+				return;
+			}
+			
 			if (launcherSelect.getSelectedItem().equals("Ballista")) {
 				field.setLauncher(0);
 				field.repaint();

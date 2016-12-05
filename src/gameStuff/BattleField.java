@@ -59,6 +59,7 @@ public class BattleField extends JPanel{
 		loadLaunchers();
 		loadQuestions();
 		loadBattleField();
+		resetMissile();
 	}
 	
 	
@@ -141,7 +142,7 @@ public class BattleField extends JPanel{
 		// Set userAngle so it can be accesed by timer to perform calculations
 		userAngle = angle;
 		// Move missile to the location of the launcher - resests for each launch
-		theMissile.move(getCurrentLevel().getLauncherXLoc(), getCurrentLevel().getLauncherYLoc());
+		resetMissile();
 		// Wait to end this method until missile is finished moving and continually performLaunch
 		levelTimer = new Timer(timeInterval, new TimerListener());
 		levelTimer.setRepeats(true);
@@ -158,16 +159,28 @@ public class BattleField extends JPanel{
 			//If the projectile hits the ground, is in the air for too long or goes out of play, stop the timer
 			if (theMissile.getYLoc() < 0 || theMissile.getXLoc() > xDim) {
 				levelTimer.stop();
+				resetMissile();
 			}
 			for (Target t : getCurrentLevel().getTargetList()) {
 				if (t.interact(theMissile)) {
 					levelTimer.stop();
+					resetMissile();
 				}
 			}
 			currentTime += milliTimeInterval;
 		}
 	}
 	
+	private void resetMissile() {
+		theMissile.move(getCurrentLevel().getLauncherXLoc(), getCurrentLevel().getLauncherYLoc());
+	}
+	
+	public boolean isLaunching() {
+		if (theMissile.getXLoc() == this.getCurrentLevel().getLauncherXLoc() && theMissile.getYLoc() == this.getCurrentLevel().getLauncherYLoc()){
+			return false;
+		}
+		return true;
+	}
 	
 	public void incrementLevel() {
 		currentLevel++;
