@@ -178,6 +178,7 @@ public class BattleField extends JPanel{
 		}
 		repaint();
 	}
+	
 	/*************************** GUI STUFF ***************************/
 	
 	public void paintComponent(Graphics g) {
@@ -219,9 +220,6 @@ public class BattleField extends JPanel{
 	public void setLauncher(int i) {
 		theLauncher = i;
 	}
-	
-	
-
 	
 	/*************************** GETTERS ***************************/
 	public int getXDim() {

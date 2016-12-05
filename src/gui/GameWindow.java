@@ -44,7 +44,7 @@ public class GameWindow extends JFrame{
 		//initialize and display the menu
 		this.menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		this.menu = new JMenu("File");
+		this.menu = new JMenu("Game Options");
 		this.exitOpt = createFileExitItem();
 		exitOpt.addActionListener(new exitListener());
 		menu.add(exitOpt);
@@ -59,7 +59,11 @@ public class GameWindow extends JFrame{
 		this.setVisible(true);
 		
 	}
-	
+	private class practiceListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
 	
 	private class exitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -74,18 +78,6 @@ public class GameWindow extends JFrame{
 	public static void main (String[] args) {
 		GameWindow gui = new GameWindow();
 		
-		//gui.field.launch(90);
-		/*
-		gui.field.launch(10);
-		gui.field.doQuiz();
-		/*gui.field.launch(45);
-		gui.field.setLauncher(0);
-		gui.field.launch(80);
-		gui.field.setLauncher(2);
-		gui.field.launch(30);
-		gui.field.incrementLevel();
-		*/
-
 	}
 	
 }

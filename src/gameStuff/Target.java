@@ -2,7 +2,12 @@ package gameStuff;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
 import gui.GameWindow;
@@ -12,6 +17,8 @@ public class Target extends JComponent {
 	private boolean wasHit;
 	// TODO: deal with size of target
 	private int width = 2;
+	private String fileName = "target.png";
+	private String hitFileName = "hitTarget.png";
 	
 	public Target(int x, int y) {
 		xLoc = x;
@@ -42,12 +49,24 @@ public class Target extends JComponent {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.RED);
+		//g.setColor(Color.RED);
 		int x = (xLoc - (width/2)) * GameWindow.SCALE_FACTOR;
 		int y = (BattleField.getInstance().getYDim() - yLoc - width) * GameWindow.SCALE_FACTOR;
-		if (wasHit){
-			g.setColor(Color.GRAY);
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(new File(fileName));
+		} catch (IOException e) {
 		}
-		g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
+		Image tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
+		g.drawImage(tempImg, x, y, null);
+		if (wasHit){
+			try {
+				image = ImageIO.read(new File(hitFileName));
+			} catch (IOException e) {
+			}
+			tempImg = image.getScaledInstance(width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR, image.SCALE_DEFAULT);
+			g.drawImage(tempImg, x, y, null);
+		}
+		//g.fillRect(x, y, width * GameWindow.SCALE_FACTOR, width * GameWindow.SCALE_FACTOR);
 	}
 }
