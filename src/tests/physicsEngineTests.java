@@ -2,11 +2,8 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import gameStuff.BattleField;
-import gameStuff.Missile;
 import gameStuff.PhysicsEngine;
 
 public class physicsEngineTests {

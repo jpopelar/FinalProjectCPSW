@@ -14,7 +14,6 @@ import gui.GameWindow;
 public class Target extends JComponent {
 	private int xLoc, yLoc;
 	private boolean wasHit;
-	// TODO: deal with size of target
 	private int width = 2;
 	private String unhitFileName = "/images/target.png";
 	private String hitFileName = "/images/hitTarget.png";

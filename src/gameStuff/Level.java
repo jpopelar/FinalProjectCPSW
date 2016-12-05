@@ -3,8 +3,6 @@ package gameStuff;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -72,11 +70,6 @@ public class Level extends JComponent {
 		}
 		
 		tmpScanner.close();
-		/*
-		// TODO: implement prompt to user
-		System.out.println("File not found - level " + levelNum + " does not exist");	
-		levelNum = -1;
-		*/
 	}
 
 	public int getLauncherXLoc() {
