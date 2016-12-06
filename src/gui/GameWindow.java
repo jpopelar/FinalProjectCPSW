@@ -69,10 +69,6 @@ public class GameWindow extends JFrame{
 		return exitopt;
 	}
 	
-	public static void main (String[] args) {
-		GameWindow gui = new GameWindow();
-	}
-	
 	private class locListener implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -91,4 +87,9 @@ public class GameWindow extends JFrame{
 		@Override
 		public void mouseExited(MouseEvent e) {}
 	}
+	
+	public static void main (String[] args) {
+		GameWindow gui = new GameWindow();
+	}
+	
 }
