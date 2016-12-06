@@ -59,9 +59,6 @@ public class UserPanel extends JPanel {
 			field.setAngle((int) angleSelect.getSelectedItem());
 			field.repaint();
 		}
-
-		
-		
 	}
 	
 	private class WhichLauncher implements ActionListener {
