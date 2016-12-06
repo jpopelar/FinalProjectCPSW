@@ -56,6 +56,10 @@ public class UserPanel extends JPanel {
 	
 	private class AngleListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			if (field.isLaunching()) {
+				JOptionPane.showMessageDialog(null, "Wait until current launch is finished");
+				return;
+			}
 			field.setAngle((int) angleSelect.getSelectedItem());
 			field.repaint();
 		}
@@ -63,6 +67,10 @@ public class UserPanel extends JPanel {
 	
 	private class WhichLauncher implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			if (field.isLaunching()) {
+				JOptionPane.showMessageDialog(null, "Wait until current launch is finished");
+				return;
+			}
 			if (launcherSelect.getSelectedItem().equals("Ballista")) {
 				field.setLauncher(0);
 				field.repaint();
