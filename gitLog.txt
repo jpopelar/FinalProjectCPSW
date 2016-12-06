@@ -1,3 +1,381 @@
+commit 94ea3b280ce2c0e3b3b2d937312693301fdf0278
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Tue Dec 6 10:58:57 2016 -0700
+
+    updated
+
+commit 7d4ed591166e0995eb0dcfb1618ce87c9893e4be
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 22:55:40 2016 -0700
+
+    fixed my name on credit
+
+commit 2c3cd8e5ef1c0ad60cc4fcb6c051130b7743c2ce
+Author: Jared Popelar <jpopelar@mines.edu>
+Date:   Mon Dec 5 22:07:40 2016 -0700
+
+    Added credit splash screen
+
+commit f2f13aa26a29571b90fa4c7f05ca50ae3a6dfcda
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 21:24:50 2016 -0700
+
+    put main at bottom
+
+commit 062bedb7ed9c4b6da496b2d972cc2526c34d73a1
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 21:24:16 2016 -0700
+
+    removed splash prompt for launch interuption angle/launcher change
+
+commit cf776e85af142a7222e62d8d89e43997db855411
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 21:20:11 2016 -0700
+
+    made it so user cannot change launcher or angle mid flight. updated jar
+
+commit b31eeff494380e84a615b15a926b3c13c7400d69
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 21:17:04 2016 -0700
+
+    overhauled levels, made a solution manual and made sure tests were correct
+
+commit 0efc04ae12448440bbdd8a76b1a134ee8a23d0cf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 20:25:20 2016 -0700
+
+    added launch testing method since we cannot use the timer listener without the gui in the test class
+
+commit 9fc8dbbf304aca7b543d2a3771aefe2298e7c851
+Merge: 0edec0e 5e6f8e5
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 20:11:56 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit 5e6f8e5a0311f669d2d645d5b2b6f05ce0f76f76
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Mon Dec 5 20:11:19 2016 -0700
+
+    Removed white background on trebuchet.
+
+commit 0edec0e432930ac56c637ca988597bee7f2a7a7c
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 20:10:29 2016 -0700
+
+    fixing launchtests
+
+commit f965dd11014f8a6af2763d177edb2f05b6d6f9a6
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Mon Dec 5 20:07:26 2016 -0700
+
+    Flipped trebuchet image to look better and updated citations for pics.
+
+commit 5d54aad08419216e4f69df1ba7f202b0030cdd15
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Mon Dec 5 19:39:35 2016 -0700
+
+    Minor bug fixes and updates so that the angle line starts at 5 degrees.
+
+commit 997f4158be4280d042751009501a9b0eff9f0060
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Mon Dec 5 19:34:59 2016 -0700
+
+    Added in dynamic updating of the launcher image and angle lines.
+
+commit 6fb7f6e8393e1c2c0f7ac0e3ebebfddd48776adf
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 16:21:03 2016 -0700
+
+    updated jar
+
+commit 1ba6852a916ba97e1f3e8724f74718266554fcc3
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 16:20:12 2016 -0700
+
+    removed unnecessary imports and TODO comments
+
+commit e92850154e4cf21e078aa913308a24fe08edd781
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 16:05:15 2016 -0700
+
+    removed DS_Store shit
+
+commit cab3e9d752b7f47d2d9821c9abeac3629c8f8a94
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 15:59:14 2016 -0700
+
+    Added .jar file
+
+commit 8adb42685b985cec1846218b3ba252359d5b9ac6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 15:57:27 2016 -0700
+
+    the testLaunch test fails - not sure why
+
+commit 429329b87ceb5212c5c935c6fbd0f82adae87501
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 15:53:15 2016 -0700
+
+    removed unnecessary throws
+
+commit 391b68f69b8ebd5c014761dafdb9a2bc8c167834
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 15:51:28 2016 -0700
+
+    redid all fileIO stuff so it would be jar compatible
+
+commit 40dbe65c542ea748e7723c9b1d078d6ea4c6f630
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 14:02:00 2016 -0700
+
+    redid the file input stuff to use inputstreams so we can make a jar file. Program compiles but working on getting the targets/launchers to properly display.
+
+commit e4ab2e51237e36d2db085e6734b8e9008f3fffdc
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Mon Dec 5 13:22:23 2016 -0700
+
+    updated test to reflect files so test would pass
+
+commit c23abe84a8d44c36f706ae1494b5973191747121
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Dec 4 23:33:44 2016 -0700
+
+    removed unnecessary imports
+
+commit 454a6a88d95f4d295e507dbc2d488286fabd3c56
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Dec 4 23:28:26 2016 -0700
+
+    removed unnessary imports. Made it so targets only interact if they hav not already been hit. Appropriately call the update missile method
+
+commit ee7b374414c5662ff737332fe75bae98a0590438
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Sun Dec 4 23:17:50 2016 -0700
+
+    added means to reset missile location and a way to block the user from ending a launch prmaturely by clicking launch
+
+commit 34e9b490dd982b0613c97eac754d8a307763e9e6
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 20:43:35 2016 -0700
+
+    Added a few files to tracking. No changes to code.
+
+commit 67277209ba830bb28f4368896c95f076803039be
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 20:40:16 2016 -0700
+
+    Added the same image functionality used with the launcher to display an actual target image. The image is replaced by a grayscale version upon hit, just like the rectangles previously used.
+
+commit d893b2adb468de8509bb5f8389ffafcb33e1b6ab
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 16:11:43 2016 -0700
+
+    Hotfix Level 2: Pushed grounded target back to put it in range for trebuchet
+
+commit c976acade26b1edf51b81b09c9ef898475977fd9
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 16:05:30 2016 -0700
+
+    Merged branches up and added necessary files to tracked files list.
+
+commit 1278f5f575545795c76ac1c10e646c33ae288685
+Merge: 27bb6c2 9fcd645
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 16:01:17 2016 -0700
+
+    Merge banch 'PictureGUIBranch'
+
+commit 9fcd6457ac90c6197072b4666046420e9f03e59e
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 16:00:52 2016 -0700
+
+    Finished implementing the images for the launchers. Now also resizes the images based on parameters defined in the constructor. Functionality has not changed. Perhaps will add dynamic updating to the current image displayed.
+
+commit 27bb6c21330145b3461f418564daff23a59739d8
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 15:39:06 2016 -0700
+
+    Updated launcher velocities
+
+commit 54389aa46c6429f33756e5eeb4bbcb63f2295017
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 15:33:14 2016 -0700
+
+    Figured out how to get picture files to load in and display instead of the simple rectangles.
+
+commit 1a69788480ec7cec0c7601db3e8ecef7e9909855
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 14:58:03 2016 -0700
+
+    Readded NextLevel button, QA is complete
+
+commit 5fd6c2634ba97a3ee44b2b50d93ed3bc39ad194c
+Merge: ffdb801 d66b027
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 14:45:59 2016 -0700
+
+    Conflict resolution
+
+commit ffdb8015b7b4e1361b0de78f18227b15b5bdaa6b
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 14:45:30 2016 -0700
+
+    Pre-pull commit
+
+commit d66b0275adefedc2e77a292d1f6dcfb5ce6bcc88
+Author: Max Watson <mawatson@mymail.mines.edu>
+Date:   Sun Dec 4 14:44:28 2016 -0700
+
+    Fixed issue with the launch button beginning an infinite loop. Removed the looping structure within the launch method that was causing this behavior. Launch button now works as expected with all three launchers and multiple projectiles.
+
+commit a4e07b31dc7382191b9598c5a3785751cf57afb8
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 14:26:07 2016 -0700
+
+    local merge
+
+commit 8945c20deb35e51da29ddc937f8c4df7364c2acd
+Merge: ac84555 26348d7
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 14:15:15 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit ac84555b8cc62edec779c720e730c2526d9e9896
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 14:15:00 2016 -0700
+
+    commented out nxtlvl button to remove redundancy... currently handled in Quiz()
+
+commit 26348d74e1126e0da93a71c0ac7436b50fbf3c2d
+Merge: c15237a 7b1f0ed
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 14:08:29 2016 -0700
+
+    Merged with Toby's edits
+
+commit c15237aefaaad67aa696082975042b24c51a71f5
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 14:07:51 2016 -0700
+
+    Commented practice code in GameWindow
+
+commit 7b1f0ed283cf4fa259814aab806829abad5e36cc
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 14:05:18 2016 -0700
+
+    Removed redundancy from quiz window.  commented out setVis() in quiz() and incrlvl in main()
+
+commit c3266c3baa99251217315231a60ded9292d49876
+Merge: 8dfd78d 94f2143
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 13:30:17 2016 -0700
+
+    Merge branch 'master' of https://github.com/SnYves/FinalProjectCPSW
+
+commit 8dfd78d7431d7e2ec18446fe3159848cfe0b83af
+Author: Toby Crocker <tcrocker@mymail.mines.edu>
+Date:   Sun Dec 4 13:30:07 2016 -0700
+
+    pre pull commit
+
+commit 94f214361c4321909c506103ed679ebe233ad7bb
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Sun Dec 4 13:22:40 2016 -0700
+
+    Quiz now spawns at end of level in GameWindow code and progresses level. BUG: The quiz spawns twice and skips twop levels as a result
+
+commit 8fe7ad705d66a0f792e31795ffd6e68f5d7b5d3e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 15:23:16 2016 -0700
+
+    added a sun
+
+commit 4b13bddebffc4fd8e6590208c85f85ae05f5c495
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 15:13:42 2016 -0700
+
+    changed color of missile to magenta and added a background sky
+
+commit 8fbc93c3c995d383dc2d3792c1eb2e571c242476
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 15:05:23 2016 -0700
+
+    added graphics to the level files. the ground level, clouds, etc is specified in the level files and draw differently for each level.
+
+commit 1b9ef67e021c5adfa538350e2591c27a09f7161d
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 14:32:37 2016 -0700
+
+    changed number of levels to 3
+
+commit b26c58566bce0dedb71eefd2b64d8375489d2a3b
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 14:05:54 2016 -0700
+
+    comment out increment of level. Now Level only increments if quiz is completed corretly
+
+commit 27b5e036c7af5311731690371dc7008e07bd3f3e
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 14:03:56 2016 -0700
+
+    commented out doQuiz call from main - pointless and just throws a thousand exceptions
+
+commit 51719543b0ae289850357d881e761b4ab0efb90a
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Fri Dec 2 14:03:20 2016 -0700
+
+    made width of target a reasonable size... 5 was WAY too big - now 2
+
+commit f63b9e0c9f6053125820d64df85ce629b6cbbc47
+Author: Jared Popelar <wildsnivy1@gmail.com>
+Date:   Fri Dec 2 13:57:51 2016 -0700
+
+    GameWindow now spawns Quiz dialog, ButtonDisplay to be added
+
+commit 751bb8dc70581853397f47d7d089aefe3aa642a1
+Author: Jared Popelar <Jared Popelar>
+Date:   Fri Dec 2 12:52:49 2016 -0700
+
+    Added splashes for the Quiz, prepared UserPanel to create quiz question on level advance
+
+commit cc65464ab56b8ad5a7e2fca7d8afd04f4f323cf6
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 23:05:07 2016 -0700
+
+    added level 3
+
+commit f2d4021f3dba30647a07df072da2ac5b3c5b79a2
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 22:51:22 2016 -0700
+
+    comments
+
+commit 3da65eca06341e4f303f5719b976ff81caabd99a
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 22:46:43 2016 -0700
+
+    trying to get launch button to not freeze the game
+
+commit 18ef533e86244d28b80ff9bccb4aca055740ef15
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 22:26:33 2016 -0700
+
+    added level checker that prompts user when all levels are complete. still working on implementing launch button. the timer does not work when called by button...weird
+
+commit d063ece9cc7d8c50e34a41872f9b3ada4704dba9
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 22:13:51 2016 -0700
+
+    instantiating gui elements correctly
+
+commit 3da0ca09bae135137ac48118bcdd97e3fc5c29fb
+Author: Bane Sullivan <chrsulli@mines.edu>
+Date:   Thu Dec 1 22:08:54 2016 -0700
+
+    added a nextLevel button and error message if the level is not complete. also changed the angle selection to a combo box with intervals of 5
+
 commit 76de6e6517fbe38f1b7dee11d3eb78941133144e
 Author: Max Watson <mawatson@mymail.mines.edu>
 Date:   Thu Dec 1 21:38:57 2016 -0700
