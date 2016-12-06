@@ -3,9 +3,10 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
-
 
 import gameStuff.*;
 
@@ -44,7 +45,7 @@ public class GameWindow extends JFrame{
 		menuBar.add(menu);
 		
 		add(field, BorderLayout.CENTER);
-		
+		//addMouseListener(new locListener());
 		control = new UserPanel();
 		add(control, BorderLayout.EAST);
 		
@@ -72,4 +73,22 @@ public class GameWindow extends JFrame{
 		GameWindow gui = new GameWindow();
 	}
 	
+	private class locListener implements MouseListener {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			double x = e.getPoint().getX() / SCALE_FACTOR;
+			double y = (field.getYDim() * SCALE_FACTOR - e.getPoint().getY()) / SCALE_FACTOR;
+			y = y + 5.0;
+			System.out.println("X: " + x + ", Y: " + y);
+			return;
+		}
+		@Override
+		public void mousePressed(MouseEvent e) {}
+		@Override
+		public void mouseReleased(MouseEvent e) {}
+		@Override
+		public void mouseEntered(MouseEvent e) {}
+		@Override
+		public void mouseExited(MouseEvent e) {}
+	}
 }

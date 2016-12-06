@@ -62,7 +62,7 @@ public class launchTests {
 			assertFalse(t.wasHit());
 		}
 		field.setLauncher(0);
-		field.launchTester(5); // launch at angle that will hit specific target in level 1
+		field.launchTester(15); // launch at angle that will hit specific target in level 1
 		assertTrue(targs.get(0).wasHit());
 		
 		// Now do level 2 targets
@@ -72,16 +72,21 @@ public class launchTests {
 		for (Target t: targs) {
 			assertFalse(t.wasHit());
 		}
-		field.setLauncher(1);
+		field.setLauncher(0);
 		field.launchTester(80); // launch at angle that will hit specific target in level 2
 		assertTrue(targs.get(0).wasHit());
 		assertFalse(targs.get(1).wasHit());
+		assertFalse(targs.get(2).wasHit());
+		assertFalse(targs.get(3).wasHit());
 		
-		field.setLauncher(2);
-		field.launchTester(5); // launch at angle that will hit specific target in level 2
+		
+		field.setLauncher(1);
+		field.launchTester(55); // launch at angle that will hit specific target in level 2
 		// make sure both targets are now seen as hit
 		assertTrue(targs.get(0).wasHit());
 		assertTrue(targs.get(1).wasHit());
+		assertFalse(targs.get(2).wasHit());
+		assertFalse(targs.get(3).wasHit());
 	}
 	
 

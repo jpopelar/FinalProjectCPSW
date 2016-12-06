@@ -2,10 +2,20 @@ solutions.txt
 
 Level 1 Solutions:
 launcher at (5,0)
-to hit target at (20, 0) launch with velocity of 25 at 10 degrees
+to hit target at (50, 0) launch with Ballista at 15 degrees
 
 Level 2 Solutions:
 launcher at (8,3)
-to hit target at (10, 15) launch with velocity of 25 at 80 degrees
-to hit target at (20, 0) launch with velocity of 10 at 30 degrees
+to hit target at (13, 30) launch with Ballista at 80 degrees
+to hit target at (37, 35) launch with Catapult at 55 degrees
+to hit target at (60, 30) launch with Ballista at 70 degrees
+to hit target at (50, 0) launch with Ballista at 10 degrees
 
+Level 3 Solutions:
+to hit target at (12, 0) launch with Trebuchet at 85 degrees
+to hit target at (20, 0) launch with Trebuchet at 80 degrees
+to hit target at (35, 0) launch with Trebuchet at 70 degrees
+to hit target at (40, 0) launch with Trebuchet at 65 degrees
+to hit target at (45, 0) launch with Trebuchet at 60 degrees
+to hit target at (50, 0) launch with Trebuchet at 45 degrees
+to hit target at (80, 0) launch with Catapult at 15 degrees
