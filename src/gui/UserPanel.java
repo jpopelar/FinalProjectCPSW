@@ -34,6 +34,8 @@ public class UserPanel extends JPanel {
 			angleSelect.addItem(i);
 		}
 		angleSelect.addActionListener(new AngleListener());
+		field.setAngle((int) angleSelect.getSelectedItem());
+		field.repaint();
 		add(angleSelect);
 		// Launch Button
 		launchButton = new JButton("Launch");

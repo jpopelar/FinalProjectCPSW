@@ -28,7 +28,8 @@ public class BattleField extends JPanel{
 	// config file names:
 	private String battleFieldFileName, questionFileName, launchersFileName; 
 	
-	private int lineLength = 75;
+	private final int LINE_LENGTH = 75;
+	private final int LINE_START = 20;
 	private int xDim, yDim;
 	private int userAngle;
 	private double currentTime = 0.0;
@@ -186,12 +187,12 @@ public class BattleField extends JPanel{
 			t.draw(g);
 		}
 
-		int x = (getCurrentLevel().getLauncherXLoc() - (5/2)) * GameWindow.SCALE_FACTOR + 20;
+		int x = (getCurrentLevel().getLauncherXLoc() - (5/2)) * GameWindow.SCALE_FACTOR + LINE_START;
 		int y = (getYDim() - getCurrentLevel().getLauncherYLoc() - 5) * GameWindow.SCALE_FACTOR + getYDim();
-		int anglex =(int) (lineLength*Math.cos(userAngle));
+		int anglex =(int) (LINE_LENGTH*Math.cos(userAngle));
 		g.setColor(Color.black);
-		g.drawLine(x, y, x + lineLength, y);
-		g.drawLine(x, y, x + (int) (lineLength*Math.cos(Math.toRadians(userAngle))), y - (int) (lineLength*Math.sin(Math.toRadians(userAngle))));
+		g.drawLine(x, y, x + LINE_LENGTH, y);
+		g.drawLine(x, y, x + (int) (LINE_LENGTH*Math.cos(Math.toRadians(userAngle))), y - (int) (LINE_LENGTH*Math.sin(Math.toRadians(userAngle))));
 	}
 	
 	public void doQuiz(){
