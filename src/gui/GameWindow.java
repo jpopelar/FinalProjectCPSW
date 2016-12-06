@@ -64,7 +64,7 @@ public class GameWindow extends JFrame{
 	
 	private class creditListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "A Lack of Inspiration is:\nTobias Crocker\nJared Popelar\nChris \"Bane\" Sullivan\nMax Watson\n", "Credits", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "A Lack of Inspiration is:\nTobias Crocker\nJared Popelar\nBane Sullivan\nMax Watson\n", "Credits", JOptionPane.INFORMATION_MESSAGE);
 		}			
 	}
 	
