@@ -22,7 +22,6 @@ public class launchTests {
 		field.setFieldFile("/data/battleField.txt");
 		
 		field.initialize();
-		
 	}	
 	
 	
@@ -62,9 +61,10 @@ public class launchTests {
 		for (Target t: targs) {
 			assertFalse(t.wasHit());
 		}
-		// set launcher to have velocity of 25
 		field.setLauncher(0);
-		field.launch(10); // launch at angle that will hit specific target in level 1
+		field.launch(0); // launch at angle that will hit specific target in level 1
+		targs = field.getCurrentLevel().getTargetList();
+		//System.out.println(targs.get(0).wasHit());
 		assertTrue(targs.get(0).wasHit());
 		
 		// Now do level 2 targets
@@ -74,13 +74,13 @@ public class launchTests {
 		for (Target t: targs) {
 			assertFalse(t.wasHit());
 		}
-		field.setLauncher(0);
+		field.setLauncher(1);
 		field.launch(80); // launch at angle that will hit specific target in level 2
 		assertTrue(targs.get(0).wasHit());
 		assertFalse(targs.get(1).wasHit());
-		// set launcher to have velocity of 25
+		
 		field.setLauncher(2);
-		field.launch(30); // launch at angle that will hit specific target in level 2
+		field.launch(5); // launch at angle that will hit specific target in level 2
 		// make sure both targets are now seen as hit
 		assertTrue(targs.get(0).wasHit());
 		assertTrue(targs.get(1).wasHit());
