@@ -3,6 +3,8 @@ package gui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -31,6 +33,7 @@ public class UserPanel extends JPanel {
 		for (int i = 5; i <= 90; i+=5) {
 			angleSelect.addItem(i);
 		}
+		angleSelect.addActionListener(new AngleListener());
 		add(angleSelect);
 		// Launch Button
 		launchButton = new JButton("Launch");
@@ -41,12 +44,43 @@ public class UserPanel extends JPanel {
 		for (Launcher l : field.getLaunchers()) {
 			launcherSelect.addItem(l.toString());
 		}
+		launcherSelect.addActionListener(new WhichLauncher());
 		add(launcherSelect);
 		// Next Level Button
 		nextLevelButton = new JButton("Next Level");
 		nextLevelButton.addActionListener(new NextListener());
 		add(nextLevelButton);
 	}
+	
+	private class AngleListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			field.setAngle((int) angleSelect.getSelectedItem());
+			field.repaint();
+		}
+
+		
+		
+	}
+	
+	private class WhichLauncher implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (launcherSelect.getSelectedItem().equals("Ballista")) {
+				field.setLauncher(0);
+				field.repaint();
+			}
+			if (launcherSelect.getSelectedItem().equals("Catapult")) {
+				field.setLauncher(1);
+				field.repaint();
+			}
+			if (launcherSelect.getSelectedItem().equals("Trebuchet")) {
+				field.setLauncher(2);
+				field.repaint();
+			}
+			
+		}
+	}
+	
+	
 	
 	private class LaunchListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
