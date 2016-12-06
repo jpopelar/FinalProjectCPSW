@@ -114,6 +114,34 @@ public class BattleField extends JPanel{
 	
 	/*************************** GAMEPLAY ***************************/
 	
+	// Tester method that doesn't use a timer and is super fast. 
+	// we cant use the timer listener with the test class so have to do this
+	public void launchTester(int angle) {
+		currentTime = 0.0;
+		userAngle = angle;
+		resetMissile();
+		while (!tester()) {}
+		
+	}
+	private boolean tester() {
+		double x = PhysicsEngine.findXPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherXLoc());
+		double y = PhysicsEngine.findYPos(launcherList.get(theLauncher).getVelocity(), userAngle, currentTime, getCurrentLevel().getLauncherYLoc());
+		theMissile.move(x, y);
+		//If the projectile hits the ground, is in the air for too long or goes out of play, stop the timer
+		if (theMissile.getYLoc() < 0 || theMissile.getXLoc() > xDim) {
+			resetMissile();
+			return true;
+		}
+		for (Target t : getCurrentLevel().getTargetList()) {
+			if (t.interact(theMissile)) {
+				resetMissile();
+				return true;
+			}
+		}
+		currentTime += milliTimeInterval;
+		return false;
+	}
+	
 	public void launch(int angle) {
 		// Loop check condition so function will idle until we need to reset
 		// Set time counter to 0
@@ -247,6 +275,10 @@ public class BattleField extends JPanel{
 	
 	public void setAngle(int angle) {
 		userAngle = angle;
+	}
+	
+	public Missile getMissile() {
+		return theMissile;
 	}
 
 
