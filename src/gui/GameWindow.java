@@ -13,7 +13,7 @@ import gameStuff.*;
 
 public class GameWindow extends JFrame{
 	private BattleField field;
-	private JMenuItem exitOpt;
+	private JMenuItem exitOpt, credit;
 	private JMenuBar menuBar;
 	private JMenu menu;
 	private UserPanel control;
@@ -40,7 +40,10 @@ public class GameWindow extends JFrame{
 		setJMenuBar(menuBar);
 		this.menu = new JMenu("Game Options");
 		this.exitOpt = createFileExitItem();
+		this.credit = createCreditSplash();
 		exitOpt.addActionListener(new exitListener());
+		credit.addActionListener(new creditListener());
+		menu.add(credit);
 		menu.add(exitOpt);
 		menuBar.add(menu);
 		
@@ -59,14 +62,26 @@ public class GameWindow extends JFrame{
 		}
 	}
 	
+	private class creditListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null, "A Lack of Inspiration is:\nTobias Crocker\nJared Popelar\nChris \"Bane\" Sullivan\nMax Watson\n", "Credits", JOptionPane.INFORMATION_MESSAGE);
+		}			
+	}
+	
 	private class exitListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			System.exit(0);
 		}			
 	}
+	
 	private JMenuItem createFileExitItem() {
 		JMenuItem exitopt = new JMenuItem("Exit");
 		return exitopt;
+	}
+	
+	private JMenuItem createCreditSplash() {
+		JMenuItem credits = new JMenuItem("Credits");
+		return credits;
 	}
 	
 	private class locListener implements MouseListener {
